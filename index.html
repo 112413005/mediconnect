@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediConnect - Patient Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+
+    <div class="logo">
+        <div class="logo-icon">+</div>
+        <span>MediConnect</span>
+    </div>
+
+    <nav class="navigation">
+
+        <a href="#" class="nav-item active" data-page="dashboard">
+            <span class="icon">⌂</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="#" class="nav-item" data-page="find-doctor">
+            <span class="icon">⚕</span>
+            <span>Find a Doctor</span>
+        </a>
+
+        <a href="#" class="nav-item" data-page="consultations">
+            <span class="icon">▣</span>
+            <span>My Consultations</span>
+        </a>
+
+        <a href="#" class="nav-item" data-page="history">
+            <span class="icon">◷</span>
+            <span>Consultation History</span>
+        </a>
+
+        <a href="#" class="nav-item" data-page="payments">
+            <span class="icon">₹</span>
+            <span>Payments</span>
+        </a>
+
+        <a href="#" class="nav-item" data-page="profile">
+            <span class="icon">●</span>
+            <span>My Profile</span>
+        </a>
+
+        <a href="#" class="nav-item" data-page="settings">
+            <span class="icon">⚙</span>
+            <span>Settings</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+        <a href="#" class="nav-item logout" id="logoutBtn">
+            <span class="icon">↪</span>
+            <span>Logout</span>
+        </a>
+    </div>
+
+</aside>
+
+
+<!-- MAIN -->
+<div class="main-container">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <button class="menu-button" id="menuButton">☰</button>
+
+        <div class="search-box">
+            <span>⌕</span>
+            <input type="text" placeholder="Search doctors or specialists...">
+        </div>
+
+        <div class="header-right">
+
+            <button class="notification-button" id="notificationBtn">
+                🔔
+                <span class="notification-dot"></span>
+            </button>
+
+            <div class="profile">
+
+                <div class="profile-image">JD</div>
+
+                <div class="profile-info">
+                    <strong>John Doe</strong>
+                    <small>Patient</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTENT -->
+    <main class="content">
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section id="dashboard" class="page-section active-section">
+
+            <div class="welcome-section">
+
+                <div>
+                    <p class="greeting">Good morning, John! 👋</p>
+
+                    <h1>Welcome to MediConnect</h1>
+
+                    <p class="welcome-text">
+                        Connect with healthcare professionals
+                        and manage your consultations in one place.
+                    </p>
+                </div>
+
+                <button class="primary-button" id="bookConsultationBtn">
+                    + Book Consultation
+                </button>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="health-card">
+                    <div class="card-icon green">📅</div>
+                    <div>
+                        <p>Upcoming Consultation</p>
+                        <h2 id="upcomingCount">1</h2>
+                        <small>Scheduled</small>
+                    </div>
+                </div>
+
+                <div class="health-card">
+                    <div class="card-icon green-light">✓</div>
+                    <div>
+                        <p>Completed Consultations</p>
+                        <h2 id="completedDashboardCount">8</h2>
+                        <small>Total consultations</small>
+                    </div>
+                </div>
+
+                <div class="health-card">
+                    <div class="card-icon orange">₹</div>
+                    <div>
+                        <p>Consultation Fees</p>
+                        <h2>₹2,400</h2>
+                        <small>Total paid</small>
+                    </div>
+                </div>
+
+                <div class="health-card">
+                    <div class="card-icon green-dark">♥</div>
+                    <div>
+                        <p>Health Score</p>
+                        <h2>86<span>/100</span></h2>
+                        <small>Updated by doctor</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <!-- UPCOMING -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Upcoming Consultation</h3>
+                            <p>Your next scheduled consultation</p>
+                        </div>
+
+                        <button class="view-button" data-page="consultations">
+                            View All
+                        </button>
+
+                    </div>
+
+                    <div class="appointment">
+
+                        <div class="doctor-avatar">SW</div>
+
+                        <div class="appointment-details">
+
+                            <h4 id="dashboardDoctorName">
+                                Dr. Sarah Wilson
+                            </h4>
+
+                            <p>General Physician</p>
+
+                            <div class="appointment-info">
+
+                                <span>
+                                    📅 <span id="dashboardDate">
+                                        September 10, 2026
+                                    </span>
+                                </span>
+
+                                <span>
+                                    ⏰ <span id="dashboardTime">
+                                        10:30 AM
+                                    </span>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <span class="status confirmed">
+                            Confirmed
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECENT CONSULTATIONS -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Recent Consultations</h3>
+                            <p>Your latest consultations</p>
+                        </div>
+
+                        <button class="view-button" data-page="history">
+                            View All
+                        </button>
+
+                    </div>
+
+                    <div class="consultation-item">
+
+                        <div class="doctor-avatar small">SW</div>
+
+                        <div class="consultation-details">
+
+                            <h4>Dr. Sarah Wilson</h4>
+
+                            <p>General Consultation</p>
+
+                        </div>
+
+                        <span class="consultation-date">
+                            Sep 02
+                        </span>
+
+                    </div>
+
+                    <div class="consultation-item">
+
+                        <div class="doctor-avatar small">MB</div>
+
+                        <div class="consultation-details">
+
+                            <h4>Dr. Michael Brown</h4>
+
+                            <p>Specialist Consultation</p>
+
+                        </div>
+
+                        <span class="consultation-date">
+                            Aug 25
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Recent Payment</h3>
+                            <p>Your latest consultation payment</p>
+                        </div>
+
+                        <button class="view-button" data-page="payments">
+                            View All
+                        </button>
+
+                    </div>
+
+                    <div class="payment-item">
+
+                        <div class="payment-icon">₹</div>
+
+                        <div>
+                            <h4>Consultation with Dr. Sarah Wilson</h4>
+                            <p>September 02, 2026</p>
+                        </div>
+
+                        <strong>₹500</strong>
+
+                    </div>
+
+                    <div class="payment-item">
+
+                        <div class="payment-icon">₹</div>
+
+                        <div>
+                            <h4>Specialist Consultation</h4>
+                            <p>August 25, 2026</p>
+                        </div>
+
+                        <strong>₹800</strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HEALTH SCORE -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Health Score</h3>
+                            <p>Based on your latest consultation</p>
+                        </div>
+                    </div>
+
+                    <div class="health-score">
+
+                        <div class="score-circle">
+                            <span>86</span>
+                            <small>/100</small>
+                        </div>
+
+                        <div class="score-details">
+
+                            <h4>Good</h4>
+
+                            <p>
+                                Your health score was updated
+                                by your doctor after your consultation.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FIND DOCTOR ================= -->
+
+        <section id="find-doctor" class="page-section">
+
+            <div class="page-title">
+
+                <h1>Find a Doctor</h1>
+
+                <p>
+                    Find the right healthcare professional
+                    for your consultation.
+                </p>
+
+            </div>
+
+
+            <div class="doctor-search">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    id="doctorSearch"
+                    placeholder="Search by doctor name or specialization..."
+                >
+
+            </div>
+
+
+            <div class="specialization-filter">
+
+                <button class="specialization-button active"
+                    data-specialization="all">
+                    All
+                </button>
+
+                <button class="specialization-button"
+                    data-specialization="General Physician">
+                    General Physician
+                </button>
+
+                <button class="specialization-button"
+                    data-specialization="Cardiologist">
+                    Cardiologist
+                </button>
+
+                <button class="specialization-button"
+                    data-specialization="Dermatologist">
+                    Dermatologist
+                </button>
+
+                <button class="specialization-button"
+                    data-specialization="Neurologist">
+                    Neurologist
+                </button>
+
+            </div>
+
+
+            <div class="doctor-grid">
+
+                <div class="doctor-card"
+                    data-name="Dr. Sarah Wilson"
+                    data-specialization="General Physician">
+
+                    <div class="doctor-card-top">
+
+                        <div class="doctor-profile-image">
+                            SW
+                        </div>
+
+                        <span class="rating">⭐ 4.8</span>
+
+                    </div>
+
+                    <h3>Dr. Sarah Wilson</h3>
+
+                    <p class="specialization">
+                        General Physician
+                    </p>
+
+                    <div class="doctor-stats">
+                        120+ Consultations
+                    </div>
+
+                    <button
+                        class="details-button"
+                        data-doctor="Dr. Sarah Wilson">
+                        More Details
+                    </button>
+
+                </div>
+
+
+                <div class="doctor-card"
+                    data-name="Dr. Michael Brown"
+                    data-specialization="Cardiologist">
+
+                    <div class="doctor-card-top">
+
+                        <div class="doctor-profile-image">
+                            MB
+                        </div>
+
+                        <span class="rating">⭐ 4.7</span>
+
+                    </div>
+
+                    <h3>Dr. Michael Brown</h3>
+
+                    <p class="specialization">
+                        Cardiologist
+                    </p>
+
+                    <div class="doctor-stats">
+                        95+ Consultations
+                    </div>
+
+                    <button
+                        class="details-button"
+                        data-doctor="Dr. Michael Brown">
+                        More Details
+                    </button>
+
+                </div>
+
+
+                <div class="doctor-card"
+                    data-name="Dr. Emily Davis"
+                    data-specialization="Dermatologist">
+
+                    <div class="doctor-card-top">
+
+                        <div class="doctor-profile-image">
+                            ED
+                        </div>
+
+                        <span class="rating">⭐ 4.9</span>
+
+                    </div>
+
+                    <h3>Dr. Emily Davis</h3>
+
+                    <p class="specialization">
+                        Dermatologist
+                    </p>
+
+                    <div class="doctor-stats">
+                        150+ Consultations
+                    </div>
+
+                    <button
+                        class="details-button"
+                        data-doctor="Dr. Emily Davis">
+                        More Details
+                    </button>
+
+                </div>
+
+
+                <div class="doctor-card"
+                    data-name="Dr. David Miller"
+                    data-specialization="Neurologist">
+
+                    <div class="doctor-card-top">
+
+                        <div class="doctor-profile-image">
+                            DM
+                        </div>
+
+                        <span class="rating">⭐ 4.6</span>
+
+                    </div>
+
+                    <h3>Dr. David Miller</h3>
+
+                    <p class="specialization">
+                        Neurologist
+                    </p>
+
+                    <div class="doctor-stats">
+                        87+ Consultations
+                    </div>
+
+                    <button
+                        class="details-button"
+                        data-doctor="Dr. David Miller">
+                        More Details
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DOCTOR DETAILS ================= -->
+
+        <section id="doctor-details" class="page-section">
+
+            <div class="page-title">
+
+                <h1>Doctor Details</h1>
+
+                <p>
+                    View the doctor's professional information before booking.
+                </p>
+
+            </div>
+
+            <div class="doctor-details-container">
+
+                <button class="back-button" id="backToDoctorsBtn">
+                    ← Back to Doctors
+                </button>
+
+                <div class="doctor-details-card">
+
+                    <div class="doctor-details-header">
+
+                        <div class="doctor-profile-image large">
+                            DR
+                        </div>
+
+                        <div class="doctor-main-info">
+
+                            <h2 id="detailDoctorName">
+                                Dr. Sarah Wilson
+                            </h2>
+
+                            <p
+                                class="detail-specialization"
+                                id="detailSpecialization">
+                                General Physician
+                            </p>
+
+                            <div class="detail-rating">
+                                ⭐ <strong id="detailRating">4.8</strong>
+                                <span>Patient Rating</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="doctor-information-grid">
+
+                        <div class="information-box">
+                            <span>🎓</span>
+                            <div>
+                                <small>Qualification</small>
+                                <strong id="detailQualification">
+                                    MBBS, MD
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div class="information-box">
+                            <span>💼</span>
+                            <div>
+                                <small>Experience</small>
+                                <strong id="detailExperience">
+                                    10+ Years
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div class="information-box">
+                            <span>👥</span>
+                            <div>
+                                <small>Consultations</small>
+                                <strong id="detailConsultations">
+                                    120+
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div class="information-box">
+                            <span>₹</span>
+                            <div>
+                                <small>Consultation Fee</small>
+                                <strong id="detailFee">
+                                    ₹500
+                                </strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="doctor-about">
+
+                        <h3>About the Doctor</h3>
+
+                        <p id="detailAbout">
+                            Dr. Sarah Wilson is an experienced healthcare
+                            professional who provides consultation and guidance
+                            to patients regarding their health concerns.
+                        </p>
+
+                    </div>
+
+
+                    <div class="doctor-availability">
+
+                        <h3>Consultation Availability</h3>
+
+                        <div class="availability-list">
+
+                            <span>Monday - Friday</span>
+                            <span>10:00 AM - 4:00 PM</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="doctor-book-section">
+
+                        <button
+                            class="primary-button"
+                            id="bookDoctorBtn">
+                            Book Consultation
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BOOK CONSULTATION ================= -->
+
+        <section id="book-consultation" class="page-section">
+
+            <div class="page-title">
+
+                <h1>Book Consultation</h1>
+
+                <p>
+                    Schedule a consultation with your selected doctor.
+                </p>
+
+            </div>
+
+
+            <div class="booking-container">
+
+                <div class="dashboard-card selected-doctor-card">
+
+                    <h3>Selected Doctor</h3>
+
+                    <div class="selected-doctor">
+
+                        <div class="doctor-profile-image large">
+                            DR
+                        </div>
+
+                        <div>
+
+                            <h2 id="bookingDoctorName">
+                                Dr. Sarah Wilson
+                            </h2>
+
+                            <p id="bookingSpecialization">
+                                General Physician
+                            </p>
+
+                            <span class="rating">
+                                ⭐ <span id="bookingRating">4.8</span>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card booking-form-card">
+
+                    <h3>Consultation Details</h3>
+
+                    <div class="form-group">
+
+                        <label for="consultationDate">
+                            Select Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="consultationDate">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Select Time</label>
+
+                        <div class="time-slots">
+
+                            <button class="time-slot"
+                                type="button"
+                                data-time="10:00 AM">
+                                10:00 AM
+                            </button>
+
+                            <button class="time-slot"
+                                type="button"
+                                data-time="10:30 AM">
+                                10:30 AM
+                            </button>
+
+                            <button class="time-slot"
+                                type="button"
+                                data-time="11:00 AM">
+                                11:00 AM
+                            </button>
+
+                            <button class="time-slot"
+                                type="button"
+                                data-time="11:30 AM">
+                                11:30 AM
+                            </button>
+
+                            <button class="time-slot"
+                                type="button"
+                                data-time="2:00 PM">
+                                2:00 PM
+                            </button>
+
+                            <button class="time-slot"
+                                type="button"
+                                data-time="2:30 PM">
+                                2:30 PM
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="patientConcern">
+                            What would you like to discuss?
+                        </label>
+
+                        <textarea
+                            id="patientConcern"
+                            rows="5"
+                            placeholder="Briefly describe what you would like to discuss with the doctor...">
+                        </textarea>
+
+                    </div>
+
+
+                    <div class="consultation-summary">
+
+                        <div>
+
+                            <span>Consultation Fee</span>
+
+                            <strong id="bookingFee">
+                                ₹500
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="booking-actions">
+
+                        <button
+                            class="secondary-button"
+                            id="cancelBookingBtn">
+                            Back
+                        </button>
+
+                        <button
+                            class="primary-button"
+                            id="confirmBookingBtn">
+                            Confirm Consultation
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MY CONSULTATIONS ================= -->
+
+        <section id="consultations" class="page-section">
+
+            <div class="page-title">
+
+                <h1>My Consultations</h1>
+
+                <p>
+                    View and manage your upcoming consultations.
+                </p>
+
+            </div>
+
+
+            <div
+                class="consultations-container"
+                id="consultationsContainer">
+            </div>
+
+
+            <div
+                class="dashboard-card empty-consultations"
+                id="emptyConsultations">
+
+                <div class="empty-icon">📅</div>
+
+                <h3>No Upcoming Consultations</h3>
+
+                <p>
+                    You don't have any upcoming consultations.
+                </p>
+
+                <button
+                    class="primary-button"
+                    id="findDoctorFromConsultations">
+                    Find a Doctor
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONSULTATION ROOM ================= -->
+
+        <section
+            id="consultation-room"
+            class="page-section">
+
+            <div class="page-title">
+
+                <h1>Consultation Room</h1>
+
+                <p>
+                    Your private consultation with the doctor.
+                </p>
+
+            </div>
+
+
+            <div class="consultation-room-layout">
+
+
+                <!-- LEFT SIDE -->
+
+                <div class="consultation-main">
+
+
+                    <div class="consultation-doctor-bar">
+
+                        <div class="doctor-avatar">
+                            SW
+                        </div>
+
+                        <div>
+
+                            <h3 id="roomDoctorName">
+                                Dr. Sarah Wilson
+                            </h3>
+
+                            <p id="roomSpecialization">
+                                General Physician
+                            </p>
+
+                        </div>
+
+                        <span class="online-status">
+                            ● Consultation Active
+                        </span>
+
+                    </div>
+
+
+                    <!-- CHAT -->
+
+                    <div
+                        class="chat-container"
+                        id="chatContainer">
+
+                        <div class="chat-message doctor-message">
+
+                            <div class="message-label">
+                                Dr. Sarah Wilson
+                            </div>
+
+                            <p>
+                                Hello John. How are you feeling today?
+                                Please tell me what you would like to discuss.
+                            </p>
+
+                            <small>10:30 AM</small>
+
+                        </div>
+
+
+                        <div class="chat-message patient-message">
+
+                            <div class="message-label">
+                                You
+                            </div>
+
+                            <p>
+                                Hello doctor. I have been having headaches
+                                since yesterday.
+                            </p>
+
+                            <small>10:31 AM</small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MESSAGE INPUT -->
+
+                    <div class="message-input-area">
+
+                        <textarea
+                            id="messageInput"
+                            rows="2"
+                            placeholder="Type your message here...">
+                        </textarea>
+
+                        <button
+                            class="primary-button"
+                            id="sendMessageBtn">
+                            Send
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT SIDE -->
+
+                <div class="consultation-side">
+
+
+                    <!-- PATIENT INFO -->
+
+                    <div class="dashboard-card consultation-info-card">
+
+                        <h3>Patient Information</h3>
+
+                        <div class="consultation-info">
+
+                            <div>
+                                <small>Patient</small>
+                                <strong>John Doe</strong>
+                            </div>
+
+                            <div>
+                                <small>Consultation</small>
+                                <strong>General Consultation</strong>
+                            </div>
+
+                            <div>
+                                <small>Concern</small>
+                                <strong id="roomConcern">
+                                    Headache
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PRESCRIPTION -->
+
+                    <div class="dashboard-card prescription-card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <h3>Prescription</h3>
+                                <p>Medicine prescribed by doctor</p>
+                            </div>
+
+                        </div>
+
+
+                        <div id="prescriptionList">
+
+                            <div class="prescription-item">
+
+                                <div>
+
+                                    <strong>
+                                        Paracetamol 500mg
+                                    </strong>
+
+                                    <p>
+                                        1 tablet after food
+                                    </p>
+
+                                </div>
+
+                                <span>
+                                    3 Days
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="doctor-prescription-form">
+
+                            <input
+                                type="text"
+                                id="medicineName"
+                                placeholder="Medicine name">
+
+                            <input
+                                type="text"
+                                id="medicineInstruction"
+                                placeholder="Instructions">
+
+                            <input
+                                type="text"
+                                id="medicineDuration"
+                                placeholder="Duration">
+
+                            <button
+                                class="secondary-button"
+                                id="addMedicineBtn">
+                                + Add Medicine
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- END CONSULTATION -->
+
+                    <div class="dashboard-card end-consultation-card">
+
+                        <h3>Finish Consultation</h3>
+
+                        <p>
+                            End the consultation after the doctor
+                            has completed the discussion and prescription.
+                        </p>
+
+                        <button
+                            class="primary-button end-button"
+                            id="endConsultationBtn">
+                            End Consultation
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PAYMENT AFTER CONSULTATION ================= -->
+
+        <section
+            id="consultation-payment"
+            class="page-section">
+
+            <div class="page-title">
+
+                <h1>Consultation Payment</h1>
+
+                <p>
+                    Complete the payment for your consultation.
+                </p>
+
+            </div>
+
+
+            <div class="payment-page-container">
+
+                <div class="dashboard-card payment-summary-card">
+
+                    <h3>Consultation Summary</h3>
+
+                    <div class="payment-summary-row">
+
+                        <span>Doctor</span>
+
+                        <strong id="paymentDoctor">
+                            Dr. Sarah Wilson
+                        </strong>
+
+                    </div>
+
+                    <div class="payment-summary-row">
+
+                        <span>Specialization</span>
+
+                        <strong id="paymentSpecialization">
+                            General Physician
+                        </strong>
+
+                    </div>
+
+                    <div class="payment-summary-row">
+
+                        <span>Consultation Fee</span>
+
+                        <strong id="paymentAmount">
+                            ₹500
+                        </strong>
+
+                    </div>
+
+                    <div class="payment-total">
+
+                        <span>Total</span>
+
+                        <strong id="paymentTotal">
+                            ₹500
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-method">
+
+                        <h3>Payment Method</h3>
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="paymentMethod"
+                                value="UPI"
+                                checked>
+
+                            <span>📱 UPI</span>
+
+                        </label>
+
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="paymentMethod"
+                                value="Card">
+
+                            <span>💳 Card</span>
+
+                        </label>
+
+
+                        <label class="payment-option">
+
+                            <input
+                                type="radio"
+                                name="paymentMethod"
+                                value="Net Banking">
+
+                            <span>🏦 Net Banking</span>
+
+                        </label>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button pay-now-button"
+                        id="payNowBtn">
+
+                        Pay Consultation Fee
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HISTORY ================= -->
+
+        <section id="history" class="page-section">
+
+            <div class="page-title">
+
+                <h1>Consultation History</h1>
+
+                <p>
+                    View your completed consultations and previous appointments.
+                </p>
+
+            </div>
+
+
+            <div class="history-summary">
+
+                <div class="history-summary-card">
+
+                    <div class="history-summary-icon">✓</div>
+
+                    <div>
+
+                        <span>Completed Consultations</span>
+
+                        <strong id="completedCount">0</strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="history-summary-card">
+
+                    <div class="history-summary-icon">₹</div>
+
+                    <div>
+
+                        <span>Total Consultation Fees</span>
+
+                        <strong id="historyTotalFees">₹0</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-card history-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>Previous Consultations</h3>
+
+                        <p>Your completed consultation records</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Doctor</th>
+                                <th>Specialization</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Fee</th>
+                                <th>Status</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="historyTableBody"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="dashboard-card empty-history"
+                id="emptyHistory">
+
+                <div class="empty-history-icon">📋</div>
+
+                <h3>No Consultation History</h3>
+
+                <p>
+                    Your completed consultations will appear here.
+                </p>
+
+                <button
+                    class="primary-button"
+                    id="findDoctorFromHistory">
+                    Find a Doctor
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PAYMENTS ================= -->
+
+        <section id="payments" class="page-section">
+
+            <div class="page-title">
+
+                <h1>Payments</h1>
+
+                <p>
+                    View your consultation payment history.
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Consultation</th>
+                            <th>Doctor</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="paymentTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROFILE ================= -->
+
+        <section id="profile" class="page-section">
+
+            <div class="page-title">
+
+                <h1>My Profile</h1>
+
+                <p>
+                    View your personal information.
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card profile-card">
+
+                <div class="large-profile">
+                    JD
+                </div>
+
+                <h2>John Doe</h2>
+
+                <p>Patient</p>
+
+
+                <div class="profile-information">
+
+                    <div>
+
+                        <strong>Email</strong>
+
+                        <span>
+                            john@example.com
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <strong>Phone</strong>
+
+                        <span>
+                            +91 XXXXX XXXXX
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SETTINGS ================= -->
+
+        <section id="settings" class="page-section">
+
+            <div class="page-title">
+
+                <h1>Settings</h1>
+
+                <p>
+                    Manage your account preferences.
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-card settings-card">
+
+                <h3>Account Information</h3>
+
+
+                <div class="form-group">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        value="John Doe">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        value="john@example.com">
+
+                </div>
+
+
+                <button class="primary-button">
+                    Save Changes
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- NOTIFICATION -->
+
+<div
+    class="notification-popup"
+    id="notificationPopup">
+
+    <h3>Notifications</h3>
+
+    <div class="notification">
+
+        <strong>Consultation Reminder</strong>
+
+        <p>
+            Your consultation with Dr. Sarah Wilson
+            is scheduled.
+        </p>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
