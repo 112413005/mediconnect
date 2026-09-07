@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>MediConnect - Patient Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
@@ -15,8 +17,6 @@
 
 <body>
 
-<div class="app-container">
-
     <!-- =====================================================
          SIDEBAR
     ====================================================== -->
@@ -24,61 +24,65 @@
     <aside class="sidebar" id="sidebar">
 
         <div class="logo-area">
+
             <div class="logo-icon">
                 <i class="fa-solid fa-heart-pulse"></i>
             </div>
 
-            <div class="logo-text">
-                <h2>MediConnect</h2>
-                <span>Healthcare Platform</span>
+            <div>
+                <h1>MediConnect</h1>
+                <p>Healthcare Platform</p>
             </div>
+
         </div>
+
 
         <nav class="sidebar-nav">
 
-            <button class="nav-item active" data-page="dashboard">
+            <a href="#" class="nav-item active" data-page="dashboard">
                 <i class="fa-solid fa-house"></i>
                 <span>Dashboard</span>
-            </button>
+            </a>
 
-            <button class="nav-item" data-page="find-doctor">
+            <a href="#" class="nav-item" data-page="find-doctor">
                 <i class="fa-solid fa-user-doctor"></i>
                 <span>Find a Doctor</span>
-            </button>
+            </a>
 
-            <button class="nav-item" data-page="consultations">
+            <a href="#" class="nav-item" data-page="consultations">
                 <i class="fa-solid fa-video"></i>
                 <span>My Consultations</span>
-            </button>
+            </a>
 
-            <button class="nav-item" data-page="history">
+            <a href="#" class="nav-item" data-page="history">
                 <i class="fa-solid fa-clock-rotate-left"></i>
                 <span>Consultation History</span>
-            </button>
+            </a>
 
-            <button class="nav-item" data-page="payments">
+            <a href="#" class="nav-item" data-page="payments">
                 <i class="fa-solid fa-credit-card"></i>
                 <span>Payments</span>
-            </button>
+            </a>
 
-            <button class="nav-item" data-page="profile">
+            <a href="#" class="nav-item" data-page="profile">
                 <i class="fa-solid fa-user"></i>
                 <span>My Profile</span>
-            </button>
+            </a>
 
-            <button class="nav-item" data-page="settings">
+            <a href="#" class="nav-item" data-page="settings">
                 <i class="fa-solid fa-gear"></i>
                 <span>Settings</span>
-            </button>
+            </a>
 
         </nav>
 
+
         <div class="sidebar-bottom">
 
-            <button class="nav-item logout-button" id="logoutBtn">
+            <a href="#" class="nav-item logout-item" id="logoutBtn">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <span>Logout</span>
-            </button>
+            </a>
 
         </div>
 
@@ -95,35 +99,56 @@
 
         <header class="top-header">
 
-            <div class="header-left">
+            <button class="menu-button" id="menuButton">
+                <i class="fa-solid fa-bars"></i>
+            </button>
 
-                <button class="menu-button" id="menuButton">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
 
-                <div>
-                    <h1 id="pageTitle">Dashboard</h1>
-                    <p id="pageSubtitle">Welcome back to MediConnect</p>
-                </div>
+            <div class="header-title">
+
+                <h2>Patient Dashboard</h2>
+
+                <p>
+                    Manage your healthcare journey with MediConnect
+                </p>
 
             </div>
+
 
             <div class="header-right">
 
                 <button class="notification-button" id="notificationBtn">
+
                     <i class="fa-regular fa-bell"></i>
+
                     <span class="notification-dot"></span>
+
                 </button>
 
-                <div class="header-profile">
 
-                    <div class="header-avatar">
-                        <span id="headerAvatarText">JD</span>
+                <div class="notification-popup" id="notificationPopup">
+
+                    <h4>Notifications</h4>
+
+                    <p>
+                        You will receive consultation updates here.
+                    </p>
+
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div class="profile-image">
+                        JD
                     </div>
 
-                    <div class="header-profile-info">
-                        <strong id="headerUserName">John Doe</strong>
+                    <div>
+
+                        <strong>John Doe</strong>
+
                         <span>Patient</span>
+
                     </div>
 
                 </div>
@@ -133,76 +158,109 @@
         </header>
 
 
-        <!-- =====================================================
+        <!-- =================================================
              DASHBOARD
-        ====================================================== -->
+        ================================================== -->
 
-        <section id="dashboard" class="page-section active">
+        <section
+            id="dashboard"
+            class="page-section active-section"
+        >
 
             <div class="welcome-section">
 
                 <div>
-                    <h2>Good morning, <span id="welcomeName">John</span>!</h2>
-                    <p>Take care of your health with MediConnect.</p>
+
+                    <h1 class="greeting">
+                        Good morning, John! 👋
+                    </h1>
+
+                    <p>
+                        Here's what's happening with your health today.
+                    </p>
+
                 </div>
 
-                <button class="primary-button" data-page-target="find-doctor">
-                    <i class="fa-solid fa-plus"></i>
+                <button
+                    class="primary-button"
+                    id="bookConsultationBtn"
+                >
+                    <i class="fa-solid fa-calendar-plus"></i>
                     Book Consultation
                 </button>
 
             </div>
 
 
-            <!-- STAT CARDS -->
+            <!-- DASHBOARD CARDS -->
 
-            <div class="stats-grid">
+            <div class="dashboard-cards">
 
-                <div class="stat-card">
-                    <div class="stat-icon blue">
+                <div class="dashboard-card">
+
+                    <div class="card-icon blue">
                         <i class="fa-solid fa-calendar-check"></i>
                     </div>
 
                     <div>
+
                         <span>Upcoming Consultations</span>
+
                         <strong id="upcomingCount">0</strong>
+
                     </div>
+
                 </div>
 
 
-                <div class="stat-card">
-                    <div class="stat-icon green">
+                <div class="dashboard-card">
+
+                    <div class="card-icon green">
                         <i class="fa-solid fa-circle-check"></i>
                     </div>
 
                     <div>
-                        <span>Completed</span>
+
+                        <span>Completed Consultations</span>
+
                         <strong id="completedDashboardCount">0</strong>
+
                     </div>
+
                 </div>
 
 
-                <div class="stat-card">
-                    <div class="stat-icon purple">
+                <div class="dashboard-card">
+
+                    <div class="card-icon purple">
                         <i class="fa-solid fa-user-doctor"></i>
                     </div>
 
                     <div>
-                        <span>Doctors Consulted</span>
-                        <strong id="doctorsConsultedCount">0</strong>
+
+                        <span>Available Doctors</span>
+
+                        <strong>4</strong>
+
                     </div>
+
                 </div>
 
 
-                <div class="stat-card">
-                    <div class="stat-icon orange">
+                <div class="dashboard-card">
+
+                    <div class="card-icon orange">
                         <i class="fa-solid fa-wallet"></i>
                     </div>
 
                     <div>
-                        <span>Total Spent</span>
-                        <strong id="totalSpentDashboard">₹0</strong>
+
+                        <span>Healthcare Platform</span>
+
+                        <strong>24/7</strong>
+
                     </div>
+
                 </div>
 
             </div>
@@ -210,99 +268,74 @@
 
             <!-- UPCOMING APPOINTMENT -->
 
-            <div class="dashboard-grid">
+            <div class="section-heading">
 
-                <div class="dashboard-card upcoming-card">
+                <div>
 
-                    <div class="card-header">
+                    <h2>Upcoming Appointment</h2>
 
-                        <div>
-                            <h3>Upcoming Appointment</h3>
-                            <p>Your next scheduled consultation</p>
-                        </div>
+                    <p>
+                        Your next scheduled consultation
+                    </p>
 
-                        <span class="status-badge waiting" id="dashboardAppointmentStatus">
-                            No Appointment
-                        </span>
+                </div>
 
+            </div>
+
+
+            <div class="upcoming-appointment">
+
+                <div class="appointment-doctor">
+
+                    <div class="doctor-avatar large">
+                        DR
                     </div>
 
+                    <div>
 
-                    <div id="dashboardAppointmentContent" class="appointment-preview">
+                        <h3 id="dashboardDoctorName">
+                            No upcoming consultation
+                        </h3>
 
-                        <div class="no-appointment">
-                            <i class="fa-regular fa-calendar-xmark"></i>
-                            <h4>No upcoming appointment</h4>
-                            <p>Book a consultation with a doctor to get started.</p>
-
-                            <button
-                                class="secondary-button"
-                                data-page-target="find-doctor"
-                            >
-                                Find a Doctor
-                            </button>
-                        </div>
+                        <p>
+                            Your next appointment will appear here.
+                        </p>
 
                     </div>
 
                 </div>
 
 
-                <!-- QUICK ACTIONS -->
+                <div class="appointment-details">
 
-                <div class="dashboard-card">
+                    <div>
 
-                    <div class="card-header">
-                        <div>
-                            <h3>Quick Actions</h3>
-                            <p>Manage your healthcare</p>
-                        </div>
+                        <span>Date</span>
+
+                        <strong id="dashboardDate">—</strong>
+
                     </div>
 
-                    <div class="quick-actions">
 
-                        <button class="quick-action" data-page-target="find-doctor">
-                            <div class="quick-icon blue">
-                                <i class="fa-solid fa-user-doctor"></i>
-                            </div>
-                            <div>
-                                <strong>Find a Doctor</strong>
-                                <span>Browse available doctors</span>
-                            </div>
-                        </button>
+                    <div>
+
+                        <span>Time</span>
+
+                        <strong id="dashboardTime">—</strong>
+
+                    </div>
 
 
-                        <button class="quick-action" data-page-target="consultations">
-                            <div class="quick-icon green">
-                                <i class="fa-solid fa-video"></i>
-                            </div>
-                            <div>
-                                <strong>My Consultations</strong>
-                                <span>View your appointments</span>
-                            </div>
-                        </button>
+                    <div>
 
+                        <span>Status</span>
 
-                        <button class="quick-action" data-page-target="history">
-                            <div class="quick-icon purple">
-                                <i class="fa-solid fa-file-medical"></i>
-                            </div>
-                            <div>
-                                <strong>Medical History</strong>
-                                <span>View previous consultations</span>
-                            </div>
-                        </button>
-
-
-                        <button class="quick-action" data-page-target="profile">
-                            <div class="quick-icon orange">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-                            <div>
-                                <strong>My Profile</strong>
-                                <span>Update your information</span>
-                            </div>
-                        </button>
+                        <span class="status confirmed">
+                            <span class="status-dot"></span>
+                            <span id="dashboardStatusText">
+                                None
+                            </span>
+                        </span>
 
                     </div>
 
@@ -313,25 +346,34 @@
         </section>
 
 
-        <!-- =====================================================
-             FIND A DOCTOR
-        ====================================================== -->
+        <!-- =================================================
+             FIND DOCTOR
+        ================================================== -->
 
-        <section id="find-doctor" class="page-section">
+        <section
+            id="find-doctor"
+            class="page-section"
+        >
 
-            <div class="section-heading">
+            <div class="page-heading">
 
                 <div>
-                    <h2>Find a Doctor</h2>
-                    <p>Choose a doctor based on your healthcare needs.</p>
+
+                    <h1>Find a Doctor</h1>
+
+                    <p>
+                        Find the right doctor for your healthcare needs.
+                    </p>
+
                 </div>
 
             </div>
 
 
-            <div class="doctor-search">
+            <div class="doctor-search-area">
 
                 <div class="search-box">
+
                     <i class="fa-solid fa-magnifying-glass"></i>
 
                     <input
@@ -339,22 +381,58 @@
                         id="doctorSearch"
                         placeholder="Search doctor or specialization..."
                     >
+
                 </div>
 
-                <select id="specializationFilter">
-                    <option value="all">All Specializations</option>
-                    <option value="General Physician">General Physician</option>
-                    <option value="Cardiologist">Cardiologist</option>
-                    <option value="Dermatologist">Dermatologist</option>
-                    <option value="Neurologist">Neurologist</option>
-                </select>
+
+                <div class="specialization-filters">
+
+                    <button
+                        class="specialization-button active"
+                        data-specialization="all"
+                    >
+                        All Specializations
+                    </button>
+
+                    <button
+                        class="specialization-button"
+                        data-specialization="General Physician"
+                    >
+                        General Physician
+                    </button>
+
+                    <button
+                        class="specialization-button"
+                        data-specialization="Cardiologist"
+                    >
+                        Cardiologist
+                    </button>
+
+                    <button
+                        class="specialization-button"
+                        data-specialization="Dermatologist"
+                    >
+                        Dermatologist
+                    </button>
+
+                    <button
+                        class="specialization-button"
+                        data-specialization="Neurologist"
+                    >
+                        Neurologist
+                    </button>
+
+                </div>
 
             </div>
 
 
-            <div class="doctor-grid" id="doctorGrid">
+            <!-- DOCTOR GRID -->
 
-                <!-- DOCTOR 1 -->
+            <div class="doctor-grid">
+
+
+                <!-- SARAH -->
 
                 <div
                     class="doctor-card"
@@ -368,18 +446,19 @@
                             SW
                         </div>
 
-                        <span class="online-status">
-                            <span></span>
+                        <span class="availability">
                             Available
                         </span>
 
                     </div>
 
+
                     <h3>Dr. Sarah Wilson</h3>
 
-                    <p class="doctor-specialization">
+                    <p class="specialization">
                         General Physician
                     </p>
+
 
                     <div class="doctor-rating">
                         <i class="fa-solid fa-star"></i>
@@ -387,7 +466,9 @@
                         <span>120+ consultations</span>
                     </div>
 
-                    <div class="doctor-details">
+
+                    <div class="doctor-info-row">
+
                         <span>
                             <i class="fa-solid fa-graduation-cap"></i>
                             MBBS, MD
@@ -395,28 +476,32 @@
 
                         <span>
                             <i class="fa-solid fa-briefcase"></i>
-                            8 years
+                            10+ years
                         </span>
+
                     </div>
 
-                    <div class="doctor-card-footer">
-                        <div>
-                            <small>Consultation Fee</small>
+
+                    <div class="doctor-card-bottom">
+
+                        <span>
+                            Consultation Fee
                             <strong>₹500</strong>
-                        </div>
+                        </span>
 
                         <button
-                            class="view-button"
-                            data-doctor="Sarah Wilson"
+                            class="details-button"
+                            data-doctor="Dr. Sarah Wilson"
                         >
                             View Profile
                         </button>
+
                     </div>
 
                 </div>
 
 
-                <!-- DOCTOR 2 -->
+                <!-- MICHAEL -->
 
                 <div
                     class="doctor-card"
@@ -430,55 +515,68 @@
                             MB
                         </div>
 
-                        <span class="online-status">
-                            <span></span>
+                        <span class="availability">
                             Available
                         </span>
 
                     </div>
 
+
                     <h3>Dr. Michael Brown</h3>
 
-                    <p class="doctor-specialization">
+                    <p class="specialization">
                         Cardiologist
                     </p>
 
+
                     <div class="doctor-rating">
+
                         <i class="fa-solid fa-star"></i>
+
                         <strong>4.7</strong>
-                        <span>95+ consultations</span>
+
+                        <span>
+                            95+ consultations
+                        </span>
+
                     </div>
 
-                    <div class="doctor-details">
+
+                    <div class="doctor-info-row">
+
                         <span>
                             <i class="fa-solid fa-graduation-cap"></i>
-                            MBBS, DM
+                            MBBS, MD, DM
                         </span>
 
                         <span>
                             <i class="fa-solid fa-briefcase"></i>
-                            10 years
+                            12+ years
                         </span>
+
                     </div>
 
-                    <div class="doctor-card-footer">
-                        <div>
-                            <small>Consultation Fee</small>
+
+                    <div class="doctor-card-bottom">
+
+                        <span>
+                            Consultation Fee
                             <strong>₹800</strong>
-                        </div>
+                        </span>
 
                         <button
-                            class="view-button"
-                            data-doctor="Michael Brown"
+                            class="details-button"
+                            data-doctor="Dr. Michael Brown"
                         >
                             View Profile
                         </button>
+
                     </div>
 
                 </div>
 
 
-                <!-- DOCTOR 3 -->
+                <!-- EMILY -->
 
                 <div
                     class="doctor-card"
@@ -492,26 +590,35 @@
                             ED
                         </div>
 
-                        <span class="online-status">
-                            <span></span>
+                        <span class="availability">
                             Available
                         </span>
 
                     </div>
 
+
                     <h3>Dr. Emily Davis</h3>
 
-                    <p class="doctor-specialization">
+                    <p class="specialization">
                         Dermatologist
                     </p>
 
+
                     <div class="doctor-rating">
+
                         <i class="fa-solid fa-star"></i>
+
                         <strong>4.9</strong>
-                        <span>150+ consultations</span>
+
+                        <span>
+                            150+ consultations
+                        </span>
+
                     </div>
 
-                    <div class="doctor-details">
+
+                    <div class="doctor-info-row">
+
                         <span>
                             <i class="fa-solid fa-graduation-cap"></i>
                             MBBS, MD
@@ -519,28 +626,32 @@
 
                         <span>
                             <i class="fa-solid fa-briefcase"></i>
-                            7 years
+                            9+ years
                         </span>
+
                     </div>
 
-                    <div class="doctor-card-footer">
-                        <div>
-                            <small>Consultation Fee</small>
+
+                    <div class="doctor-card-bottom">
+
+                        <span>
+                            Consultation Fee
                             <strong>₹700</strong>
-                        </div>
+                        </span>
 
                         <button
-                            class="view-button"
-                            data-doctor="Emily Davis"
+                            class="details-button"
+                            data-doctor="Dr. Emily Davis"
                         >
                             View Profile
                         </button>
+
                     </div>
 
                 </div>
 
 
-                <!-- DOCTOR 4 -->
+                <!-- DAVID -->
 
                 <div
                     class="doctor-card"
@@ -554,108 +665,115 @@
                             DM
                         </div>
 
-                        <span class="online-status">
-                            <span></span>
+                        <span class="availability">
                             Available
                         </span>
 
                     </div>
 
+
                     <h3>Dr. David Miller</h3>
 
-                    <p class="doctor-specialization">
+                    <p class="specialization">
                         Neurologist
                     </p>
 
+
                     <div class="doctor-rating">
+
                         <i class="fa-solid fa-star"></i>
+
                         <strong>4.6</strong>
-                        <span>87+ consultations</span>
+
+                        <span>
+                            87+ consultations
+                        </span>
+
                     </div>
 
-                    <div class="doctor-details">
+
+                    <div class="doctor-info-row">
+
                         <span>
                             <i class="fa-solid fa-graduation-cap"></i>
-                            MBBS, DM
+                            MBBS, MD, DM
                         </span>
 
                         <span>
                             <i class="fa-solid fa-briefcase"></i>
-                            12 years
+                            11+ years
                         </span>
+
                     </div>
 
-                    <div class="doctor-card-footer">
-                        <div>
-                            <small>Consultation Fee</small>
+
+                    <div class="doctor-card-bottom">
+
+                        <span>
+                            Consultation Fee
                             <strong>₹900</strong>
-                        </div>
+                        </span>
 
                         <button
-                            class="view-button"
-                            data-doctor="David Miller"
+                            class="details-button"
+                            data-doctor="Dr. David Miller"
                         >
                             View Profile
                         </button>
+
                     </div>
 
                 </div>
-
-            </div>
-
-
-            <div id="noDoctorsFound" class="empty-state hidden">
-
-                <i class="fa-solid fa-user-doctor"></i>
-
-                <h3>No doctors found</h3>
-
-                <p>
-                    Try another doctor name or specialization.
-                </p>
 
             </div>
 
         </section>
 
 
-        <!-- =====================================================
+        <!-- =================================================
              DOCTOR DETAILS
-        ====================================================== -->
+        ================================================== -->
 
-        <section id="doctor-details" class="page-section">
+        <section
+            id="doctor-details"
+            class="page-section"
+        >
 
-            <button class="back-button" data-page-target="find-doctor">
+            <button
+                class="back-button"
+                id="backToDoctorsBtn"
+            >
                 <i class="fa-solid fa-arrow-left"></i>
                 Back to Doctors
             </button>
 
-            <div class="doctor-detail-card">
 
-                <div class="doctor-detail-header">
+            <div class="doctor-details-card">
 
-                    <div class="large-doctor-avatar" id="detailDoctorAvatar">
-                        SW
+                <div class="doctor-details-header">
+
+                    <div class="doctor-avatar extra-large">
+                        DR
                     </div>
 
                     <div>
 
-                        <h2 id="detailDoctorName">
-                            Dr. Sarah Wilson
-                        </h2>
+                        <h1 id="detailDoctorName">
+                            Doctor
+                        </h1>
 
                         <p id="detailSpecialization">
-                            General Physician
+                            Specialization
                         </p>
 
-                        <div class="doctor-rating large">
+                        <div class="doctor-rating">
+
                             <i class="fa-solid fa-star"></i>
 
                             <strong id="detailRating">
-                                4.8
+                                0
                             </strong>
 
-                            <span>Excellent rating</span>
                         </div>
 
                     </div>
@@ -663,53 +781,57 @@
                 </div>
 
 
-                <div class="detail-grid">
+                <div class="doctor-details-grid">
 
-                    <div class="detail-item">
+                    <div class="detail-box">
+
                         <i class="fa-solid fa-graduation-cap"></i>
 
-                        <div>
-                            <small>Qualification</small>
-                            <strong id="detailQualification">
-                                MBBS, MD
-                            </strong>
-                        </div>
+                        <span>Qualification</span>
+
+                        <strong id="detailQualification">
+                            —
+                        </strong>
+
                     </div>
 
 
-                    <div class="detail-item">
+                    <div class="detail-box">
+
                         <i class="fa-solid fa-briefcase"></i>
 
-                        <div>
-                            <small>Experience</small>
-                            <strong id="detailExperience">
-                                8 years
-                            </strong>
-                        </div>
+                        <span>Experience</span>
+
+                        <strong id="detailExperience">
+                            —
+                        </strong>
+
                     </div>
 
 
-                    <div class="detail-item">
+                    <div class="detail-box">
+
                         <i class="fa-solid fa-users"></i>
 
-                        <div>
-                            <small>Consultations</small>
-                            <strong id="detailConsultations">
-                                120+
-                            </strong>
-                        </div>
+                        <span>Consultations</span>
+
+                        <strong id="detailConsultations">
+                            —
+                        </strong>
+
                     </div>
 
 
-                    <div class="detail-item">
+                    <div class="detail-box">
+
                         <i class="fa-solid fa-indian-rupee-sign"></i>
 
-                        <div>
-                            <small>Consultation Fee</small>
-                            <strong id="detailFee">
-                                ₹500
-                            </strong>
-                        </div>
+                        <span>Consultation Fee</span>
+
+                        <strong id="detailFee">
+                            —
+                        </strong>
+
                     </div>
 
                 </div>
@@ -717,25 +839,213 @@
 
                 <div class="about-doctor">
 
-                    <h3>About the Doctor</h3>
+                    <h2>About the Doctor</h2>
 
                     <p id="detailAbout">
-                        Experienced healthcare professional providing
-                        quality medical consultation and personalized
-                        patient care.
+                        Doctor information will appear here.
                     </p>
 
                 </div>
 
 
-                <div class="detail-action">
+                <button
+                    class="primary-button large-button"
+                    id="bookDoctorBtn"
+                >
+                    <i class="fa-solid fa-calendar-plus"></i>
+                    Book Consultation
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             BOOK CONSULTATION
+        ================================================== -->
+
+        <section
+            id="book-consultation"
+            class="page-section"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h1>Book Consultation</h1>
+
+                    <p>
+                        Choose your preferred date and time.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="booking-card">
+
+                <div class="booking-doctor-summary">
+
+                    <div class="doctor-avatar">
+                        DR
+                    </div>
+
+                    <div>
+
+                        <h2 id="bookingDoctorName">
+                            Doctor
+                        </h2>
+
+                        <p id="bookingSpecialization">
+                            Specialization
+                        </p>
+
+                        <div class="doctor-rating">
+
+                            <i class="fa-solid fa-star"></i>
+
+                            <strong id="bookingRating">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="consultationDate">
+                        Consultation Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="consultationDate"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Select Time
+                    </label>
+
+
+                    <div class="time-slots">
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="09:00 AM"
+                        >
+                            09:00 AM
+                        </button>
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="10:00 AM"
+                        >
+                            10:00 AM
+                        </button>
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="11:00 AM"
+                        >
+                            11:00 AM
+                        </button>
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="02:00 PM"
+                        >
+                            02:00 PM
+                        </button>
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="03:00 PM"
+                        >
+                            03:00 PM
+                        </button>
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="04:00 PM"
+                        >
+                            04:00 PM
+                        </button>
+
+                        <button
+                            type="button"
+                            class="time-slot"
+                            data-time="05:00 PM"
+                        >
+                            05:00 PM
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="patientConcern">
+                        What would you like to discuss?
+                    </label>
+
+                    <textarea
+                        id="patientConcern"
+                        rows="5"
+                        placeholder="Briefly describe your health concern..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="booking-fee">
+
+                    <span>
+                        Consultation Fee
+                    </span>
+
+                    <strong id="bookingFee">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-actions">
+
+                    <button
+                        class="secondary-button"
+                        id="cancelBookingBtn"
+                        type="button"
+                    >
+                        Cancel
+                    </button>
 
                     <button
                         class="primary-button"
-                        id="bookDoctorBtn"
+                        id="confirmBookingBtn"
+                        type="button"
                     >
-                        <i class="fa-solid fa-calendar-plus"></i>
-                        Book Consultation
+                        Send Consultation Request
                     </button>
 
                 </div>
@@ -745,238 +1055,54 @@
         </section>
 
 
-        <!-- =====================================================
-             BOOKING
-        ====================================================== -->
-
-        <section id="booking" class="page-section">
-
-            <button class="back-button" data-page-target="doctor-details">
-                <i class="fa-solid fa-arrow-left"></i>
-                Back to Doctor
-            </button>
-
-
-            <div class="booking-layout">
-
-                <div class="booking-main">
-
-                    <div class="section-heading">
-
-                        <div>
-                            <h2>Book Consultation</h2>
-                            <p>Select your preferred date and time.</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="booking-doctor-info">
-
-                        <div class="doctor-avatar" id="bookingDoctorAvatar">
-                            SW
-                        </div>
-
-                        <div>
-                            <h3 id="bookingDoctorName">
-                                Dr. Sarah Wilson
-                            </h3>
-
-                            <p id="bookingSpecialization">
-                                General Physician
-                            </p>
-
-                            <div class="doctor-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <strong id="bookingRating">4.8</strong>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-card">
-
-                        <div class="form-group">
-
-                            <label for="consultationDate">
-                                Consultation Date
-                            </label>
-
-                            <input
-                                type="date"
-                                id="consultationDate"
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
-                                Select Time
-                            </label>
-
-                            <div class="time-slots">
-
-                                <button class="time-slot" data-time="10:00 AM">
-                                    10:00 AM
-                                </button>
-
-                                <button class="time-slot" data-time="11:00 AM">
-                                    11:00 AM
-                                </button>
-
-                                <button class="time-slot" data-time="12:00 PM">
-                                    12:00 PM
-                                </button>
-
-                                <button class="time-slot" data-time="02:00 PM">
-                                    02:00 PM
-                                </button>
-
-                                <button class="time-slot" data-time="03:00 PM">
-                                    03:00 PM
-                                </button>
-
-                                <button class="time-slot" data-time="05:00 PM">
-                                    05:00 PM
-                                </button>
-
-                                <button class="time-slot" data-time="06:00 PM">
-                                    06:00 PM
-                                </button>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="patientConcern">
-                                Reason for Consultation
-                            </label>
-
-                            <textarea
-                                id="patientConcern"
-                                rows="5"
-                                placeholder="Briefly describe your concern..."
-                            ></textarea>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="booking-summary">
-
-                    <div class="summary-card">
-
-                        <h3>Booking Summary</h3>
-
-                        <div class="summary-row">
-                            <span>Doctor</span>
-                            <strong id="summaryDoctorName">
-                                Dr. Sarah Wilson
-                            </strong>
-                        </div>
-
-                        <div class="summary-row">
-                            <span>Specialization</span>
-                            <strong id="summarySpecialization">
-                                General Physician
-                            </strong>
-                        </div>
-
-                        <div class="summary-row">
-                            <span>Date</span>
-                            <strong id="summaryDate">
-                                Not selected
-                            </strong>
-                        </div>
-
-                        <div class="summary-row">
-                            <span>Time</span>
-                            <strong id="summaryTime">
-                                Not selected
-                            </strong>
-                        </div>
-
-                        <div class="summary-divider"></div>
-
-                        <div class="summary-total">
-                            <span>Consultation Fee</span>
-                            <strong id="bookingFee">₹500</strong>
-                        </div>
-
-                        <button
-                            class="secondary-button full-width"
-                            id="cancelBookingBtn"
-                        >
-                            Cancel
-                        </button>
-
-                        <button
-                            class="primary-button full-width"
-                            id="confirmBookingBtn"
-                        >
-                            Confirm Booking
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
+        <!-- =================================================
              MY CONSULTATIONS
-        ====================================================== -->
+        ================================================== -->
 
-        <section id="consultations" class="page-section">
+        <section
+            id="consultations"
+            class="page-section"
+        >
 
-            <div class="section-heading">
+            <div class="page-heading">
 
                 <div>
-                    <h2>My Consultations</h2>
-                    <p>Track your upcoming and ongoing consultations.</p>
+
+                    <h1>My Consultations</h1>
+
+                    <p>
+                        Track your consultation requests and appointments.
+                    </p>
+
                 </div>
 
-                <button
-                    class="secondary-button"
-                    id="findDoctorFromConsultations"
-                    data-page-target="find-doctor"
-                >
-                    <i class="fa-solid fa-plus"></i>
-                    Book New
-                </button>
-
             </div>
 
 
-            <div id="consultationsContainer" class="consultations-list">
-            </div>
+            <div
+                id="consultationsContainer"
+                class="consultations-container"
+            ></div>
 
 
-            <div id="emptyConsultations" class="empty-state">
+            <div
+                id="emptyConsultations"
+                class="empty-state"
+            >
 
-                <i class="fa-solid fa-calendar-check"></i>
+                <div class="empty-icon">
+                    <i class="fa-solid fa-calendar-xmark"></i>
+                </div>
 
-                <h3>No consultations yet</h3>
+                <h2>No Consultations</h2>
 
                 <p>
-                    You haven't booked any consultations.
+                    You don't have any consultation requests yet.
                 </p>
 
                 <button
                     class="primary-button"
-                    data-page-target="find-doctor"
+                    id="findDoctorFromConsultations"
                 >
                     Find a Doctor
                 </button>
@@ -986,177 +1112,175 @@
         </section>
 
 
-        <!-- =====================================================
+        <!-- =================================================
              CONSULTATION ROOM
-        ====================================================== -->
+        ================================================== -->
 
-        <section id="consultation-room" class="page-section">
+        <section
+            id="consultation-room"
+            class="page-section"
+        >
 
-            <div class="consultation-header">
+            <div class="consultation-room">
 
-                <div>
+                <div class="room-header">
 
-                    <button
-                        class="back-button"
-                        data-page-target="consultations"
-                    >
-                        <i class="fa-solid fa-arrow-left"></i>
-                        My Consultations
-                    </button>
+                    <div class="room-doctor-info">
 
-                    <h2>
-                        Consultation Room
-                    </h2>
+                        <div class="doctor-avatar">
+                            DR
+                        </div>
+
+                        <div>
+
+                            <h2 id="roomDoctorName">
+                                Doctor
+                            </h2>
+
+                            <p id="roomSpecialization">
+                                Specialization
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="live-status">
+                        <span></span>
+                        Consultation
+                    </span>
 
                 </div>
 
-                <span class="consultation-live">
-                    <span></span>
-                    Consultation Active
-                </span>
 
-            </div>
+                <div class="room-content">
 
+                    <!-- CHAT -->
 
-            <div class="consultation-layout">
+                    <div class="chat-section">
 
-                <!-- CHAT -->
-
-                <div class="chat-card">
-
-                    <div class="chat-header">
-
-                        <div class="chat-doctor">
-
-                            <div class="doctor-avatar">
-                                <span id="roomDoctorAvatar">
-                                    SW
-                                </span>
-                            </div>
-
-                            <div>
-                                <h3 id="roomDoctorName">
-                                    Dr. Sarah Wilson
-                                </h3>
-
-                                <p id="roomSpecialization">
-                                    General Physician
-                                </p>
-                            </div>
-
-                        </div>
-
-                        <span class="online-status">
-                            <span></span>
-                            Online
-                        </span>
-
-                    </div>
-
-
-                    <div
-                        class="chat-container"
-                        id="chatContainer"
-                    >
-
-                        <div class="chat-system-message">
-                            Consultation started. You can communicate
-                            with your doctor here.
-                        </div>
-
-                    </div>
-
-
-                    <div class="chat-input-area">
-
-                        <input
-                            type="text"
-                            id="messageInput"
-                            placeholder="Type your message..."
+                        <div
+                            class="chat-container"
+                            id="chatContainer"
                         >
 
-                        <button id="sendMessageBtn">
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </button>
+                            <div class="chat-welcome">
 
-                    </div>
+                                <div class="welcome-icon">
+                                    <i class="fa-solid fa-video"></i>
+                                </div>
 
-                </div>
-
-
-                <!-- CONSULTATION SIDE PANEL -->
-
-                <div class="consultation-sidebar">
-
-                    <div class="side-card">
-
-                        <h3>Consultation Details</h3>
-
-                        <div class="consultation-info">
-
-                            <div>
-                                <small>Doctor</small>
-                                <strong id="sideRoomDoctorName">
-                                    Dr. Sarah Wilson
-                                </strong>
-                            </div>
-
-                            <div>
-                                <small>Specialization</small>
-                                <strong id="sideRoomSpecialization">
-                                    General Physician
-                                </strong>
-                            </div>
-
-                            <div>
-                                <small>Reason</small>
-                                <strong id="roomConcern">
-                                    General consultation
-                                </strong>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- PRESCRIPTION VIEW ONLY -->
-
-                    <div class="side-card prescription-card">
-
-                        <div class="side-card-heading">
-
-                            <h3>
-                                <i class="fa-solid fa-prescription-bottle-medical"></i>
-                                Prescription
-                            </h3>
-
-                        </div>
-
-
-                        <div id="patientPrescriptionList">
-
-                            <div class="prescription-empty">
-                                <i class="fa-solid fa-file-medical"></i>
+                                <h3>
+                                    Consultation Room
+                                </h3>
 
                                 <p>
-                                    Prescription will appear here
-                                    when your doctor adds one.
+                                    You are now connected to your doctor.
                                 </p>
+
                             </div>
+
+                        </div>
+
+
+                        <div class="message-box">
+
+                            <textarea
+                                id="messageInput"
+                                rows="2"
+                                placeholder="Type your message..."
+                            ></textarea>
+
+                            <button
+                                class="send-button"
+                                id="sendMessageBtn"
+                            >
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
 
                         </div>
 
                     </div>
 
 
-                    <button
-                        class="danger-button full-width"
-                        id="endConsultationBtn"
-                    >
-                        <i class="fa-solid fa-phone-slash"></i>
-                        End Consultation
-                    </button>
+                    <!-- SIDEBAR -->
+
+                    <aside class="room-sidebar">
+
+                        <div class="room-info-card">
+
+                            <h3>
+                                Consultation Details
+                            </h3>
+
+                            <div class="room-detail">
+
+                                <span>Concern</span>
+
+                                <p id="roomConcern">
+                                    —
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PATIENT VIEW ONLY -->
+
+                        <div class="prescription-card">
+
+                            <div class="prescription-header">
+
+                                <div>
+
+                                    <h3>
+                                        Prescription
+                                    </h3>
+
+                                    <p>
+                                        Doctor's prescription
+                                    </p>
+
+                                </div>
+
+                                <i class="fa-solid fa-prescription-bottle-medical"></i>
+
+                            </div>
+
+
+                            <div
+                                id="prescriptionList"
+                                class="prescription-list"
+                            >
+
+                                <div class="prescription-item">
+
+                                    <strong>
+                                        No prescription yet
+                                    </strong>
+
+                                    <p>
+                                        Your doctor has not added a prescription.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            class="end-consultation-button"
+                            id="endConsultationBtn"
+                        >
+                            <i class="fa-solid fa-phone-slash"></i>
+                            End Consultation
+                        </button>
+
+                    </aside>
 
                 </div>
 
@@ -1165,17 +1289,173 @@
         </section>
 
 
-        <!-- =====================================================
-             HISTORY
-        ====================================================== -->
+        <!-- =================================================
+             CONSULTATION PAYMENT
+        ================================================== -->
 
-        <section id="history" class="page-section">
+        <section
+            id="consultation-payment"
+            class="page-section"
+        >
 
-            <div class="section-heading">
+            <div class="page-heading">
 
                 <div>
-                    <h2>Consultation History</h2>
-                    <p>View your completed consultations.</p>
+
+                    <h1>Complete Payment</h1>
+
+                    <p>
+                        Complete your consultation payment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="payment-card">
+
+                <div class="payment-doctor">
+
+                    <div class="doctor-avatar">
+                        DR
+                    </div>
+
+                    <div>
+
+                        <h2 id="paymentDoctor">
+                            Doctor
+                        </h2>
+
+                        <p id="paymentSpecialization">
+                            Specialization
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="payment-summary">
+
+                    <div>
+
+                        <span>
+                            Consultation Fee
+                        </span>
+
+                        <strong id="paymentAmount">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="paymentTotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <h3>
+                    Select Payment Method
+                </h3>
+
+
+                <div class="payment-methods">
+
+                    <label class="payment-method">
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="UPI"
+                            checked
+                        >
+
+                        <span>
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            UPI
+                        </span>
+
+                    </label>
+
+
+                    <label class="payment-method">
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="Card"
+                        >
+
+                        <span>
+                            <i class="fa-solid fa-credit-card"></i>
+                            Card
+                        </span>
+
+                    </label>
+
+
+                    <label class="payment-method">
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="Net Banking"
+                        >
+
+                        <span>
+                            <i class="fa-solid fa-building-columns"></i>
+                            Net Banking
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    class="primary-button payment-button"
+                    id="payNowBtn"
+                >
+                    <i class="fa-solid fa-lock"></i>
+                    Pay Now
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CONSULTATION HISTORY
+        ================================================== -->
+
+        <section
+            id="history"
+            class="page-section"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h1>Consultation History</h1>
+
+                    <p>
+                        View your completed consultations.
+                    </p>
+
                 </div>
 
             </div>
@@ -1183,20 +1463,35 @@
 
             <div class="history-summary">
 
-                <div class="history-stat">
-                    <span>Completed Consultations</span>
-                    <strong id="completedCount">0</strong>
+                <div class="summary-card">
+
+                    <span>
+                        Completed Consultations
+                    </span>
+
+                    <strong id="completedCount">
+                        0
+                    </strong>
+
                 </div>
 
-                <div class="history-stat">
-                    <span>Total Consultation Fees</span>
-                    <strong id="historyTotalFees">₹0</strong>
+
+                <div class="summary-card">
+
+                    <span>
+                        Total Consultation Fees
+                    </span>
+
+                    <strong id="historyTotalFees">
+                        ₹0
+                    </strong>
+
                 </div>
 
             </div>
 
 
-            <div class="table-card">
+            <div class="history-card">
 
                 <div class="table-wrapper">
 
@@ -1205,58 +1500,85 @@
                         <thead>
 
                             <tr>
+
                                 <th>Doctor</th>
+
                                 <th>Specialization</th>
+
                                 <th>Date</th>
+
                                 <th>Time</th>
+
                                 <th>Fee</th>
+
                                 <th>Status</th>
+
                             </tr>
 
                         </thead>
 
-                        <tbody id="historyTableBody">
-                        </tbody>
+
+                        <tbody id="historyTableBody"></tbody>
 
                     </table>
 
                 </div>
 
+            </div>
 
-                <div id="emptyHistory" class="empty-state small">
 
+            <div
+                id="emptyHistory"
+                class="empty-state"
+            >
+
+                <div class="empty-icon">
                     <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
 
-                    <h3>No history available</h3>
+                <h2>No History Yet</h2>
+
+                <p>
+                    Your completed consultations will appear here.
+                </p>
+
+                <button
+                    class="primary-button"
+                    id="findDoctorFromHistory"
+                >
+                    Find a Doctor
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PAYMENTS
+        ================================================== -->
+
+        <section
+            id="payments"
+            class="page-section"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h1>Payments</h1>
 
                     <p>
-                        Completed consultations will appear here.
+                        View your consultation payment history.
                     </p>
 
                 </div>
 
             </div>
 
-        </section>
 
-
-        <!-- =====================================================
-             PAYMENTS
-        ====================================================== -->
-
-        <section id="payments" class="page-section">
-
-            <div class="section-heading">
-
-                <div>
-                    <h2>Payments</h2>
-                    <p>View your consultation payment history.</p>
-                </div>
-
-            </div>
-
-
-            <div class="table-card">
+            <div class="payment-history-card">
 
                 <div class="table-wrapper">
 
@@ -1265,18 +1587,23 @@
                         <thead>
 
                             <tr>
+
+                                <th>Service</th>
+
                                 <th>Doctor</th>
-                                <th>Consultation</th>
+
                                 <th>Date</th>
+
                                 <th>Amount</th>
-                                <th>Payment Method</th>
+
                                 <th>Status</th>
+
                             </tr>
 
                         </thead>
 
-                        <tbody id="paymentTableBody">
-                        </tbody>
+
+                        <tbody id="paymentTableBody"></tbody>
 
                     </table>
 
@@ -1287,328 +1614,98 @@
         </section>
 
 
-        <!-- =====================================================
-             PAYMENT PAGE
-        ====================================================== -->
-
-        <section id="payment-page" class="page-section">
-
-            <button
-                class="back-button"
-                data-page-target="consultation-room"
-            >
-                <i class="fa-solid fa-arrow-left"></i>
-                Back to Consultation
-            </button>
-
-
-            <div class="payment-layout">
-
-                <div class="payment-card">
-
-                    <div class="payment-heading">
-
-                        <div class="payment-icon">
-                            <i class="fa-solid fa-credit-card"></i>
-                        </div>
-
-                        <div>
-                            <h2>Complete Payment</h2>
-                            <p>Complete your consultation payment.</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="payment-doctor-info">
-
-                        <div class="doctor-avatar">
-                            <span id="paymentDoctorAvatar">SW</span>
-                        </div>
-
-                        <div>
-                            <h3 id="paymentDoctor">
-                                Dr. Sarah Wilson
-                            </h3>
-
-                            <p id="paymentSpecialization">
-                                General Physician
-                            </p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="payment-methods">
-
-                        <h3>Payment Method</h3>
-
-
-                        <label class="payment-option">
-
-                            <input
-                                type="radio"
-                                name="paymentMethod"
-                                value="UPI"
-                                checked
-                            >
-
-                            <span class="payment-option-content">
-                                <i class="fa-solid fa-mobile-screen-button"></i>
-
-                                <span>
-                                    <strong>UPI</strong>
-                                    <small>Google Pay / PhonePe / Paytm</small>
-                                </span>
-                            </span>
-
-                        </label>
-
-
-                        <label class="payment-option">
-
-                            <input
-                                type="radio"
-                                name="paymentMethod"
-                                value="Card"
-                            >
-
-                            <span class="payment-option-content">
-                                <i class="fa-solid fa-credit-card"></i>
-
-                                <span>
-                                    <strong>Credit / Debit Card</strong>
-                                    <small>Visa / Mastercard / RuPay</small>
-                                </span>
-                            </span>
-
-                        </label>
-
-
-                        <label class="payment-option">
-
-                            <input
-                                type="radio"
-                                name="paymentMethod"
-                                value="Net Banking"
-                            >
-
-                            <span class="payment-option-content">
-                                <i class="fa-solid fa-building-columns"></i>
-
-                                <span>
-                                    <strong>Net Banking</strong>
-                                    <small>All major banks supported</small>
-                                </span>
-                            </span>
-
-                        </label>
-
-                    </div>
-
-
-                    <div class="payment-total">
-
-                        <span>Total Amount</span>
-
-                        <strong id="paymentAmount">
-                            ₹500
-                        </strong>
-
-                    </div>
-
-
-                    <button
-                        class="primary-button full-width"
-                        id="payNowBtn"
-                    >
-                        Pay <span id="paymentTotal">₹500</span>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
+        <!-- =================================================
              PROFILE
-        ====================================================== -->
+        ================================================== -->
 
-        <section id="profile" class="page-section">
+        <section
+            id="profile"
+            class="page-section"
+        >
 
-            <div class="section-heading">
+            <div class="page-heading">
 
                 <div>
-                    <h2>My Profile</h2>
-                    <p>View and update your personal information.</p>
-                </div>
 
-                <button
-                    class="secondary-button"
-                    id="editProfileBtn"
-                >
-                    <i class="fa-solid fa-pen"></i>
-                    Edit Profile
-                </button>
+                    <h1>My Profile</h1>
+
+                    <p>
+                        Manage your personal information.
+                    </p>
+
+                </div>
 
             </div>
 
 
             <div class="profile-card">
 
-                <div class="profile-top">
+                <div class="profile-main">
 
-                    <div class="profile-avatar" id="profileAvatar">
+                    <div class="large-profile">
                         JD
                     </div>
 
                     <div>
 
-                        <h2 id="profileDisplayName">
+                        <h2>
                             John Doe
                         </h2>
 
-                        <p>Patient</p>
+                        <p>
+                            Patient
+                        </p>
 
                     </div>
 
                 </div>
 
 
-                <div class="profile-form">
+                <div class="profile-information">
 
-                    <div class="form-group">
+                    <div>
 
-                        <label for="profileName">
-                            Full Name
-                        </label>
+                        <i class="fa-solid fa-envelope"></i>
 
-                        <input
-                            type="text"
-                            id="profileName"
-                            value="John Doe"
-                            disabled
-                        >
+                        <div>
 
-                    </div>
+                            <span>john@example.com</span>
 
+                            <small>Email Address</small>
 
-                    <div class="form-group">
-
-                        <label for="profileEmail">
-                            Email
-                        </label>
-
-                        <input
-                            type="email"
-                            id="profileEmail"
-                            value="john.doe@example.com"
-                            disabled
-                        >
+                        </div>
 
                     </div>
 
 
-                    <div class="form-group">
+                    <div>
 
-                        <label for="profilePhone">
-                            Phone Number
-                        </label>
+                        <i class="fa-solid fa-phone"></i>
 
-                        <input
-                            type="tel"
-                            id="profilePhone"
-                            value="+91 9876543210"
-                            disabled
-                        >
+                        <div>
 
-                    </div>
+                            <span>+91 XXXXX XXXXX</span>
 
+                            <small>Phone Number</small>
 
-                    <div class="form-group">
-
-                        <label for="profileDob">
-                            Date of Birth
-                        </label>
-
-                        <input
-                            type="date"
-                            id="profileDob"
-                            disabled
-                        >
+                        </div>
 
                     </div>
 
 
-                    <div class="form-group">
+                    <div>
 
-                        <label for="profileGender">
-                            Gender
-                        </label>
+                        <i class="fa-solid fa-user"></i>
 
-                        <select id="profileGender" disabled>
+                        <div>
 
-                            <option value="">
-                                Select Gender
-                            </option>
+                            <span>Patient</span>
 
-                            <option value="Male">
-                                Male
-                            </option>
+                            <small>Account Type</small>
 
-                            <option value="Female">
-                                Female
-                            </option>
-
-                            <option value="Other">
-                                Other
-                            </option>
-
-                        </select>
+                        </div>
 
                     </div>
-
-
-                    <div class="form-group full">
-
-                        <label for="profileAddress">
-                            Address
-                        </label>
-
-                        <textarea
-                            id="profileAddress"
-                            rows="4"
-                            disabled
-                            placeholder="Enter your address"
-                        ></textarea>
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="profile-actions"
-                    id="profileActions"
-                    style="display:none;"
-                >
-
-                    <button
-                        class="secondary-button"
-                        id="cancelProfileBtn"
-                    >
-                        Cancel
-                    </button>
-
-                    <button
-                        class="primary-button"
-                        id="saveProfileBtn"
-                    >
-                        <i class="fa-solid fa-check"></i>
-                        Save Changes
-                    </button>
 
                 </div>
 
@@ -1617,17 +1714,25 @@
         </section>
 
 
-        <!-- =====================================================
+        <!-- =================================================
              SETTINGS
-        ====================================================== -->
+        ================================================== -->
 
-        <section id="settings" class="page-section">
+        <section
+            id="settings"
+            class="page-section"
+        >
 
-            <div class="section-heading">
+            <div class="page-heading">
 
                 <div>
-                    <h2>Settings</h2>
-                    <p>Manage your account preferences.</p>
+
+                    <h1>Settings</h1>
+
+                    <p>
+                        Manage your account settings.
+                    </p>
+
                 </div>
 
             </div>
@@ -1635,85 +1740,59 @@
 
             <div class="settings-card">
 
-                <div class="setting-row">
+                <h2>
+                    Account Information
+                </h2>
 
-                    <div class="setting-info">
 
-                        <div class="setting-icon">
-                            <i class="fa-regular fa-bell"></i>
-                        </div>
+                <div class="form-group">
 
-                        <div>
-                            <strong>Notifications</strong>
-                            <span>Receive appointment notifications</span>
-                        </div>
-
-                    </div>
-
-                    <label class="toggle">
-
-                        <input
-                            type="checkbox"
-                            id="notificationToggle"
-                            checked
-                        >
-
-                        <span></span>
-
+                    <label>
+                        Full Name
                     </label>
 
+                    <input
+                        type="text"
+                        value="John Doe"
+                    >
+
                 </div>
 
 
-                <div class="setting-row">
+                <div class="form-group">
 
-                    <div class="setting-info">
-
-                        <div class="setting-icon">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-
-                        <div>
-                            <strong>Email Reminders</strong>
-                            <span>Receive consultation reminders</span>
-                        </div>
-
-                    </div>
-
-                    <label class="toggle">
-
-                        <input
-                            type="checkbox"
-                            checked
-                        >
-
-                        <span></span>
-
+                    <label>
+                        Email Address
                     </label>
 
+                    <input
+                        type="email"
+                        value="john@example.com"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="text"
+                        value="+91 XXXXX XXXXX"
+                    >
+
                 </div>
 
 
-                <div class="setting-row">
-
-                    <div class="setting-info">
-
-                        <div class="setting-icon">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-
-                        <div>
-                            <strong>Privacy</strong>
-                            <span>Your healthcare information is protected</span>
-                        </div>
-
-                    </div>
-
-                    <span class="privacy-status">
-                        Protected
-                    </span>
-
-                </div>
+                <button
+                    type="button"
+                    class="primary-button"
+                >
+                    Save Changes
+                </button>
 
             </div>
 
@@ -1721,29 +1800,9 @@
 
     </main>
 
-</div>
 
-
-<!-- =====================================================
-     TOAST NOTIFICATION
-====================================================== -->
-
-<div id="toast" class="toast">
-
-    <i class="fa-solid fa-circle-check"></i>
-
-    <span id="toastMessage">
-        Success
-    </span>
-
-</div>
-
-
-<!-- =====================================================
-     SCRIPT
-====================================================== -->
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
