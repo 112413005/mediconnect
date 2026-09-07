@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
@@ -12,128 +11,59 @@ document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.getElementById("sidebar");
     const menuButton = document.getElementById("menuButton");
 
-    const notificationBtn = document.getElementById("notificationBtn");
-    const notificationPopup = document.getElementById("notificationPopup");
+    const notificationBtn =
+        document.getElementById("notificationBtn");
 
-    const doctorSearch = document.getElementById("doctorSearch");
-    const specializationFilter =
-        document.getElementById("specializationFilter");
+    const notificationPopup =
+        document.getElementById("notificationPopup");
 
-    const doctorsGrid = document.getElementById("doctorsGrid");
+    const bookConsultationBtn =
+        document.getElementById("bookConsultationBtn");
 
-    const detailDoctorName =
-        document.getElementById("detailDoctorName");
+    const logoutBtn =
+        document.getElementById("logoutBtn");
 
-    const detailSpecialization =
-        document.getElementById("detailSpecialization");
+    const doctorSearch =
+        document.getElementById("doctorSearch");
 
-    const detailRating =
-        document.getElementById("detailRating");
+    const doctorCards =
+        document.querySelectorAll(".doctor-card");
 
-    const detailQualification =
-        document.getElementById("detailQualification");
+    const specializationButtons =
+        document.querySelectorAll(".specialization-button");
 
-    const detailExperience =
-        document.getElementById("detailExperience");
+    const detailButtons =
+        document.querySelectorAll(".details-button");
 
-    const detailConsultations =
-        document.getElementById("detailConsultations");
-
-    const detailFee =
-        document.getElementById("detailFee");
-
-    const detailAbout =
-        document.getElementById("detailAbout");
+    const backToDoctorsBtn =
+        document.getElementById("backToDoctorsBtn");
 
     const bookDoctorBtn =
         document.getElementById("bookDoctorBtn");
 
-    const bookingDoctorName =
-        document.getElementById("bookingDoctorName");
-
-    const bookingSpecialization =
-        document.getElementById("bookingSpecialization");
-
-    const bookingRating =
-        document.getElementById("bookingRating");
-
-    const consultationDate =
-        document.getElementById("consultationDate");
-
-    const patientConcern =
-        document.getElementById("patientConcern");
-
-    const bookingFee =
-        document.getElementById("bookingFee");
-
-    const cancelBookingBtn =
-        document.getElementById("cancelBookingBtn");
+    const timeSlots =
+        document.querySelectorAll(".time-slot");
 
     const confirmBookingBtn =
         document.getElementById("confirmBookingBtn");
 
-    const consultationsContainer =
-        document.getElementById("consultationsContainer");
-
-    const emptyConsultations =
-        document.getElementById("emptyConsultations");
-
-    const findDoctorFromConsultations =
-        document.getElementById("findDoctorFromConsultations");
-
-    const roomDoctorName =
-        document.getElementById("roomDoctorName");
-
-    const roomSpecialization =
-        document.getElementById("roomSpecialization");
-
-    const chatContainer =
-        document.getElementById("chatContainer");
-
-    const messageInput =
-        document.getElementById("messageInput");
+    const cancelBookingBtn =
+        document.getElementById("cancelBookingBtn");
 
     const sendMessageBtn =
         document.getElementById("sendMessageBtn");
 
-    const roomConcern =
-        document.getElementById("roomConcern");
+    const messageInput =
+        document.getElementById("messageInput");
+
+    const chatContainer =
+        document.getElementById("chatContainer");
 
     const endConsultationBtn =
         document.getElementById("endConsultationBtn");
 
-    const patientPrescriptionList =
-        document.getElementById("patientPrescriptionList");
-
-    const paymentDoctor =
-        document.getElementById("paymentDoctor");
-
-    const paymentSpecialization =
-        document.getElementById("paymentSpecialization");
-
-    const paymentAmount =
-        document.getElementById("paymentAmount");
-
-    const paymentTotal =
-        document.getElementById("paymentTotal");
-
     const payNowBtn =
         document.getElementById("payNowBtn");
-
-    const completedCount =
-        document.getElementById("completedCount");
-
-    const historyTotalFees =
-        document.getElementById("historyTotalFees");
-
-    const historyTableBody =
-        document.getElementById("historyTableBody");
-
-    const emptyHistory =
-        document.getElementById("emptyHistory");
-
-    const paymentTableBody =
-        document.getElementById("paymentTableBody");
 
 
     /* =====================================================
@@ -142,58 +72,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const doctorData = {
 
-        "Sarah Wilson": {
-            name: "Dr. Sarah Wilson",
+        "Dr. Sarah Wilson": {
             specialization: "General Physician",
             rating: "4.8",
-            reviews: "120+",
             qualification: "MBBS, MD",
             experience: "10+ Years",
-            consultations: "1200+",
-            fee: 500,
+            consultations: "120+",
+            fee: "₹500",
             about:
-                "Dr. Sarah Wilson is an experienced general physician providing comprehensive primary healthcare and medical consultations."
+                "Dr. Sarah Wilson is an experienced healthcare professional who provides consultation and guidance to patients regarding their health concerns."
         },
 
-        "Michael Brown": {
-            name: "Dr. Michael Brown",
+        "Dr. Michael Brown": {
             specialization: "Cardiologist",
             rating: "4.7",
-            reviews: "95+",
             qualification: "MBBS, MD, DM",
             experience: "12+ Years",
-            consultations: "950+",
-            fee: 800,
+            consultations: "95+",
+            fee: "₹800",
             about:
-                "Dr. Michael Brown specializes in cardiovascular health, diagnosis and treatment of heart-related conditions."
+                "Dr. Michael Brown specializes in cardiovascular consultation and helps patients understand and manage their heart-related concerns."
         },
 
-        "Emily Davis": {
-            name: "Dr. Emily Davis",
+        "Dr. Emily Davis": {
             specialization: "Dermatologist",
             rating: "4.9",
-            reviews: "150+",
             qualification: "MBBS, MD",
-            experience: "8+ Years",
-            consultations: "1500+",
-            fee: 700,
+            experience: "9+ Years",
+            consultations: "150+",
+            fee: "₹700",
             about:
-                "Dr. Emily Davis specializes in skin, hair and cosmetic dermatology with a patient-focused approach."
+                "Dr. Emily Davis provides professional consultation for skin, hair and other dermatological concerns."
         },
 
-        "David Miller": {
-            name: "Dr. David Miller",
+        "Dr. David Miller": {
             specialization: "Neurologist",
             rating: "4.6",
-            reviews: "87+",
             qualification: "MBBS, MD, DM",
             experience: "11+ Years",
-            consultations: "870+",
-            fee: 900,
+            consultations: "87+",
+            fee: "₹900",
             about:
-                "Dr. David Miller specializes in neurological disorders and provides diagnosis and treatment for nervous system conditions."
+                "Dr. David Miller provides consultation for neurological concerns and helps patients understand their symptoms and available medical guidance."
         }
+
     };
+
+
+    /* =====================================================
+       CURRENT CONSULTATION
+    ===================================================== */
+
+    let selectedTime = "";
+    let currentAppointment = null;
 
 
     /* =====================================================
@@ -202,75 +133,115 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showPage(pageId) {
 
-        pages.forEach(page => {
+        pages.forEach(function (page) {
             page.classList.remove("active-section");
         });
 
-        const targetPage =
+        const selectedPage =
             document.getElementById(pageId);
 
-        if (targetPage) {
-            targetPage.classList.add("active-section");
+        if (!selectedPage) {
+            console.error("Page not found:", pageId);
+            return;
         }
 
-        navItems.forEach(item => {
+        selectedPage.classList.add("active-section");
+
+        navItems.forEach(function (item) {
+
             item.classList.remove("active");
 
             if (item.dataset.page === pageId) {
                 item.classList.add("active");
             }
+
         });
 
         if (sidebar) {
-            sidebar.classList.remove("mobile-open");
+            sidebar.classList.remove("open");
         }
 
-        if (pageId === "consultations") {
-            renderConsultations();
-        }
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
-        if (pageId === "history") {
-            renderHistory();
-        }
-
-        if (pageId === "payments") {
-            renderPayments();
-        }
     }
 
 
     /* =====================================================
-       SIDEBAR NAVIGATION
+       SIDEBAR
     ===================================================== */
 
-    navItems.forEach(item => {
+    navItems.forEach(function (item) {
 
         item.addEventListener("click", function (event) {
 
             event.preventDefault();
 
-            const pageId = this.dataset.page;
+            showPage(item.dataset.page);
 
-            if (pageId) {
-                showPage(pageId);
+            if (item.dataset.page === "consultations") {
+                renderConsultations();
             }
+
+            if (item.dataset.page === "history") {
+                renderHistory();
+            }
+
+            if (item.dataset.page === "payments") {
+                renderPayments();
+            }
+
+            if (item.dataset.page === "profile") {
+                loadProfile();
+            }
+
         });
+
     });
 
 
-    viewButtons.forEach(button => {
+    /* =====================================================
+       VIEW BUTTONS
+    ===================================================== */
+
+    viewButtons.forEach(function (button) {
 
         button.addEventListener("click", function (event) {
 
             event.preventDefault();
 
-            const pageId = this.dataset.page;
+            showPage(button.dataset.page);
 
-            if (pageId) {
-                showPage(pageId);
+            if (button.dataset.page === "consultations") {
+                renderConsultations();
             }
+
+            if (button.dataset.page === "history") {
+                renderHistory();
+            }
+
+            if (button.dataset.page === "payments") {
+                renderPayments();
+            }
+
         });
+
     });
+
+
+    /* =====================================================
+       BOOK CONSULTATION FROM DASHBOARD
+    ===================================================== */
+
+    if (bookConsultationBtn) {
+
+        bookConsultationBtn.addEventListener("click", function () {
+            showPage("find-doctor");
+        });
+
+    }
 
 
     /* =====================================================
@@ -280,9 +251,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (menuButton && sidebar) {
 
         menuButton.addEventListener("click", function () {
-
-            sidebar.classList.toggle("mobile-open");
+            sidebar.classList.toggle("open");
         });
+
     }
 
 
@@ -297,12 +268,47 @@ document.addEventListener("DOMContentLoaded", function () {
             event.stopPropagation();
 
             notificationPopup.classList.toggle("show");
+
         });
 
-        document.addEventListener("click", function () {
+    }
+
+
+    document.addEventListener("click", function (event) {
+
+        if (
+            notificationPopup &&
+            notificationBtn &&
+            !notificationPopup.contains(event.target) &&
+            !notificationBtn.contains(event.target)
+        ) {
 
             notificationPopup.classList.remove("show");
+
+        }
+
+    });
+
+
+    /* =====================================================
+       LOGOUT
+    ===================================================== */
+
+    if (logoutBtn) {
+
+        logoutBtn.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            const confirmed =
+                confirm("Are you sure you want to logout?");
+
+            if (confirmed) {
+                alert("Logout functionality will be connected to the backend later.");
+            }
+
         });
+
     }
 
 
@@ -310,231 +316,233 @@ document.addEventListener("DOMContentLoaded", function () {
        DOCTOR SEARCH
     ===================================================== */
 
-    function renderDoctors() {
+    function filterDoctors() {
 
-        if (!doctorsGrid) return;
+        if (!doctorSearch) {
+            return;
+        }
 
-        const searchText =
-            doctorSearch
-                ? doctorSearch.value.toLowerCase().trim()
-                : "";
+        const searchValue =
+            doctorSearch.value.trim().toLowerCase();
 
-        const specialization =
-            specializationFilter
-                ? specializationFilter.value
-                : "All";
-
-        doctorsGrid.innerHTML = "";
-
-        Object.values(doctorData).forEach(doctor => {
-
-            const matchesSearch =
-                doctor.name.toLowerCase().includes(searchText) ||
-                doctor.specialization.toLowerCase().includes(searchText);
-
-            const matchesSpecialization =
-                specialization === "All" ||
-                doctor.specialization === specialization;
-
-            if (!matchesSearch || !matchesSpecialization) {
-                return;
-            }
-
-            const card =
-                document.createElement("div");
-
-            card.className = "doctor-card";
-
-            card.innerHTML = `
-
-                <div class="doctor-card-top">
-
-                    <div class="doctor-avatar">
-                        ${getInitials(doctor.name)}
-                    </div>
-
-                    <div class="doctor-card-info">
-
-                        <h3>
-                            ${escapeHTML(doctor.name)}
-                        </h3>
-
-                        <p>
-                            ${escapeHTML(doctor.specialization)}
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="doctor-rating">
-
-                    <span>★</span>
-                    ${doctor.rating}
-
-                    <small>
-                        (${doctor.reviews})
-                    </small>
-
-                </div>
-
-                <div class="doctor-fee">
-                    ₹${parseAmount(doctor.fee)}
-                    <span>/ consultation</span>
-                </div>
-
-                <button
-                    class="view-button"
-                    data-doctor="${escapeHTML(doctor.name)}"
-                >
-                    View Details
-                </button>
-            `;
-
-            const viewButton =
-                card.querySelector(".view-button");
-
-            viewButton.addEventListener(
-                "click",
-                function () {
-
-                    const doctorName =
-                        this.dataset.doctor;
-
-                    showDoctorDetails(doctorName);
-                }
+        const activeFilter =
+            document.querySelector(
+                ".specialization-button.active"
             );
 
-            doctorsGrid.appendChild(card);
+        const selectedSpecialization =
+            activeFilter
+                ? activeFilter.dataset.specialization.toLowerCase()
+                : "all";
+
+
+        doctorCards.forEach(function (card) {
+
+            const doctorName =
+                (card.dataset.name || "").toLowerCase();
+
+            const specialization =
+                (card.dataset.specialization || "").toLowerCase();
+
+
+            const matchesSearch =
+                doctorName.includes(searchValue) ||
+                specialization.includes(searchValue);
+
+
+            const matchesSpecialization =
+                selectedSpecialization === "all" ||
+                specialization === selectedSpecialization;
+
+
+            card.style.display =
+                matchesSearch && matchesSpecialization
+                    ? ""
+                    : "none";
+
         });
+
     }
 
 
     if (doctorSearch) {
-        doctorSearch.addEventListener(
-            "input",
-            renderDoctors
-        );
+        doctorSearch.addEventListener("input", filterDoctors);
     }
 
-    if (specializationFilter) {
-        specializationFilter.addEventListener(
-            "change",
-            renderDoctors
-        );
-    }
+
+    /* =====================================================
+       SPECIALIZATION FILTER
+    ===================================================== */
+
+    specializationButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            specializationButtons.forEach(function (btn) {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            filterDoctors();
+
+        });
+
+    });
 
 
     /* =====================================================
        DOCTOR DETAILS
     ===================================================== */
 
-    let selectedDoctor = null;
+    detailButtons.forEach(function (button) {
 
-    function showDoctorDetails(doctorName) {
+        button.addEventListener("click", function () {
 
-        const doctor =
-            doctorData[doctorName];
+            const doctorName =
+                button.dataset.doctor;
 
-        if (!doctor) return;
+            const doctor =
+                doctorData[doctorName];
 
-        selectedDoctor = doctor;
+            if (!doctor) {
 
-        if (detailDoctorName)
-            detailDoctorName.textContent = doctor.name;
+                alert("Doctor information not available.");
 
-        if (detailSpecialization)
-            detailSpecialization.textContent =
-                doctor.specialization;
+                return;
+            }
 
-        if (detailRating)
-            detailRating.textContent =
-                doctor.rating;
 
-        if (detailQualification)
-            detailQualification.textContent =
-                doctor.qualification;
+            document.getElementById(
+                "detailDoctorName"
+            ).textContent = doctorName;
 
-        if (detailExperience)
-            detailExperience.textContent =
-                doctor.experience;
 
-        if (detailConsultations)
-            detailConsultations.textContent =
-                doctor.consultations;
+            document.getElementById(
+                "detailSpecialization"
+            ).textContent = doctor.specialization;
 
-        if (detailFee)
-            detailFee.textContent =
-                `₹${parseAmount(doctor.fee)}`;
 
-        if (detailAbout)
-            detailAbout.textContent =
-                doctor.about;
+            document.getElementById(
+                "detailRating"
+            ).textContent = doctor.rating;
 
-        showPage("doctor-details");
+
+            document.getElementById(
+                "detailQualification"
+            ).textContent = doctor.qualification;
+
+
+            document.getElementById(
+                "detailExperience"
+            ).textContent = doctor.experience;
+
+
+            document.getElementById(
+                "detailConsultations"
+            ).textContent = doctor.consultations;
+
+
+            document.getElementById(
+                "detailFee"
+            ).textContent = doctor.fee;
+
+
+            document.getElementById(
+                "detailAbout"
+            ).textContent = doctor.about;
+
+
+            showPage("doctor-details");
+
+        });
+
+    });
+
+
+    /* =====================================================
+       BACK TO DOCTORS
+    ===================================================== */
+
+    if (backToDoctorsBtn) {
+
+        backToDoctorsBtn.addEventListener("click", function () {
+            showPage("find-doctor");
+        });
+
     }
 
 
     /* =====================================================
-       BOOK DOCTOR
+       DOCTOR DETAILS → BOOK
     ===================================================== */
 
     if (bookDoctorBtn) {
 
-        bookDoctorBtn.addEventListener(
-            "click",
-            function () {
+        bookDoctorBtn.addEventListener("click", function () {
 
-                if (!selectedDoctor) {
-                    return;
-                }
+            const doctorName =
+                document.getElementById(
+                    "detailDoctorName"
+                ).textContent.trim();
 
-                if (bookingDoctorName)
-                    bookingDoctorName.textContent =
-                        selectedDoctor.name;
 
-                if (bookingSpecialization)
-                    bookingSpecialization.textContent =
-                        selectedDoctor.specialization;
+            const doctor =
+                doctorData[doctorName];
 
-                if (bookingRating)
-                    bookingRating.textContent =
-                        selectedDoctor.rating;
 
-                if (bookingFee)
-                    bookingFee.textContent =
-                        `₹${parseAmount(selectedDoctor.fee)}`;
+            if (!doctor) {
 
-                if (consultationDate)
-                    consultationDate.value = "";
+                alert("Doctor information not available.");
 
-                if (patientConcern)
-                    patientConcern.value = "";
-
-                document
-                    .querySelectorAll(".time-slot")
-                    .forEach(slot => {
-                        slot.classList.remove("selected");
-                    });
-
-                selectedTime = null;
-
-                showPage("booking");
+                return;
             }
-        );
-    }
 
 
-    /* =====================================================
-       DATE MINIMUM
-    ===================================================== */
+            document.getElementById(
+                "bookingDoctorName"
+            ).textContent = doctorName;
 
-    if (consultationDate) {
 
-        const today =
-            new Date().toISOString().split("T")[0];
+            document.getElementById(
+                "bookingSpecialization"
+            ).textContent =
+                doctor.specialization;
 
-        consultationDate.min = today;
+
+            document.getElementById(
+                "bookingRating"
+            ).textContent =
+                doctor.rating;
+
+
+            document.getElementById(
+                "bookingFee"
+            ).textContent =
+                doctor.fee;
+
+
+            document.getElementById(
+                "consultationDate"
+            ).value = "";
+
+
+            document.getElementById(
+                "patientConcern"
+            ).value = "";
+
+
+            timeSlots.forEach(function (slot) {
+                slot.classList.remove("selected");
+            });
+
+
+            selectedTime = "";
+
+            showPage("book-consultation");
+
+        });
+
     }
 
 
@@ -542,376 +550,344 @@ document.addEventListener("DOMContentLoaded", function () {
        TIME SLOT
     ===================================================== */
 
-    let selectedTime = null;
+    timeSlots.forEach(function (slot) {
 
-    document
-        .querySelectorAll(".time-slot")
-        .forEach(slot => {
+        slot.addEventListener("click", function () {
 
-            slot.addEventListener(
-                "click",
-                function () {
+            timeSlots.forEach(function (button) {
+                button.classList.remove("selected");
+            });
 
-                    document
-                        .querySelectorAll(".time-slot")
-                        .forEach(item => {
-                            item.classList.remove("selected");
-                        });
 
-                    this.classList.add("selected");
+            slot.classList.add("selected");
 
-                    selectedTime =
-                        this.textContent.trim();
-                }
-            );
+
+            selectedTime =
+                slot.dataset.time;
+
         });
 
-
-    /* =====================================================
-       CANCEL BOOKING
-    ===================================================== */
-
-    if (cancelBookingBtn) {
-
-        cancelBookingBtn.addEventListener(
-            "click",
-            function () {
-
-                showPage("find-doctor");
-            }
-        );
-    }
+    });
 
 
     /* =====================================================
        CONFIRM BOOKING
+       
        IMPORTANT:
-       NEW APPOINTMENT = WAITING
+       New appointment starts as WAITING.
+       It does NOT start as Confirmed.
     ===================================================== */
 
     if (confirmBookingBtn) {
 
-        confirmBookingBtn.addEventListener(
-            "click",
-            function () {
+        confirmBookingBtn.addEventListener("click", function () {
 
-                if (!selectedDoctor) {
-                    alert("Please select a doctor.");
-                    return;
-                }
-
-                if (!consultationDate ||
-                    !consultationDate.value) {
-
-                    alert("Please select a consultation date.");
-                    return;
-                }
-
-                if (!selectedTime) {
-
-                    alert("Please select a consultation time.");
-                    return;
-                }
-
-                const concern =
-                    patientConcern
-                        ? patientConcern.value.trim()
-                        : "";
-
-                if (!concern) {
-
-                    alert("Please enter your concern.");
-                    return;
-                }
-
-
-                /* =========================================
-                   APPOINTMENT CREATED AS WAITING
-                ========================================= */
-
-                const appointment = {
-
-                    id: Date.now(),
-
-                    doctorName:
-                        selectedDoctor.name,
-
-                    specialization:
-                        selectedDoctor.specialization,
-
-                    date:
-                        consultationDate.value,
-
-                    time:
-                        selectedTime,
-
-                    concern:
-                        concern,
-
-                    fee:
-                        selectedDoctor.fee,
-
-                    status:
-                        "Waiting",
-
-                    paymentStatus:
-                        "Pending",
-
-                    prescription:
-                        [],
-
-                    createdAt:
-                        new Date().toISOString()
-                };
-
-
-                const appointments =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "patientAppointments"
-                        )
-                    ) || [];
-
-
-                appointments.push(appointment);
-
-
-                localStorage.setItem(
-                    "patientAppointments",
-                    JSON.stringify(appointments)
+            const dateInput =
+                document.getElementById(
+                    "consultationDate"
                 );
 
+
+            const concernInput =
+                document.getElementById(
+                    "patientConcern"
+                );
+
+
+            const date =
+                dateInput.value;
+
+
+            const concern =
+                concernInput.value.trim();
+
+
+            const doctorName =
+                document.getElementById(
+                    "bookingDoctorName"
+                ).textContent.trim();
+
+
+            const specialization =
+                document.getElementById(
+                    "bookingSpecialization"
+                ).textContent.trim();
+
+
+            const fee =
+                document.getElementById(
+                    "bookingFee"
+                ).textContent.trim();
+
+
+            if (!date) {
 
                 alert(
-                    "Consultation request sent. Waiting for doctor approval."
+                    "Please select a consultation date."
                 );
 
-
-                showPage("consultations");
-
-                renderConsultations();
+                return;
             }
-        );
+
+
+            if (!selectedTime) {
+
+                alert(
+                    "Please select a consultation time."
+                );
+
+                return;
+            }
+
+
+            if (!concern) {
+
+                alert(
+                    "Please describe what you would like to discuss."
+                );
+
+                return;
+            }
+
+
+            /*
+             * Appointment starts as WAITING.
+             * Doctor must accept it before
+             * it becomes CONFIRMED.
+             */
+
+            const appointment = {
+
+                id: Date.now(),
+
+                doctorName:
+                    doctorName,
+
+                specialization:
+                    specialization,
+
+                date:
+                    date,
+
+                time:
+                    selectedTime,
+
+                concern:
+                    concern,
+
+                fee:
+                    fee,
+
+                status:
+                    "Waiting",
+
+                paymentStatus:
+                    "Pending",
+
+                createdAt:
+                    new Date().toISOString()
+
+            };
+
+
+            let appointments =
+                getAppointments();
+
+
+            appointments.push(
+                appointment
+            );
+
+
+            saveAppointments(
+                appointments
+            );
+
+
+            alert(
+                "Consultation request sent successfully. Waiting for doctor confirmation."
+            );
+
+
+            showPage("consultations");
+
+            renderConsultations();
+
+        });
+
     }
 
 
     /* =====================================================
-       CONSULTATION FLOW
+       RENDER MY CONSULTATIONS
        
-       WAITING
-          ↓
-       CONFIRMED
-          ↓
-       CONSULT
-          ↓
-       PAYMENT
-          ↓
-       COMPLETED
+       BUTTON ITSELF SHOWS:
+       
+       Waiting
+       Confirmed
+       Consult
+       Completed
+       Rejected
     ===================================================== */
 
     function renderConsultations() {
 
-        if (!consultationsContainer) return;
+        const container =
+            document.getElementById(
+                "consultationsContainer"
+            );
+
+
+        const emptyState =
+            document.getElementById(
+                "emptyConsultations"
+            );
+
+
+        if (!container) {
+            return;
+        }
+
 
         const appointments =
-            JSON.parse(
-                localStorage.getItem(
-                    "patientAppointments"
-                )
-            ) || [];
+            getAppointments();
 
 
-        consultationsContainer.innerHTML = "";
+        container.innerHTML = "";
 
 
         if (appointments.length === 0) {
 
-            if (emptyConsultations) {
-                emptyConsultations.style.display =
-                    "block";
+            if (emptyState) {
+                emptyState.style.display = "block";
             }
 
             return;
         }
 
 
-        if (emptyConsultations) {
-            emptyConsultations.style.display =
-                "none";
+        if (emptyState) {
+            emptyState.style.display = "none";
         }
 
 
-        appointments.forEach(appointment => {
+        appointments.forEach(function (appointment) {
 
             const card =
                 document.createElement("div");
 
+
             card.className =
-                "consultation-card";
+                "consultation-appointment-card";
 
 
-            let buttonHTML = "";
-            let statusClass = "";
-            let displayStatus =
-                appointment.status;
+            /*
+             * Decide what the button should display.
+             */
 
+            let actionHTML = "";
 
-            /* =============================================
-               WAITING
-               Patient has booked.
-               Doctor has not accepted yet.
-            ============================================= */
 
             if (appointment.status === "Waiting") {
 
-                statusClass = "waiting";
-
-                displayStatus = "Waiting";
-
-                buttonHTML = `
-
+                actionHTML = `
                     <button
-                        class="consult-button disabled"
-                        disabled
-                    >
+                        class="consult-button status-button waiting"
+                        disabled>
                         Waiting
                     </button>
                 `;
+
             }
 
 
-            /* =============================================
-               CONFIRMED
-               Doctor accepted.
-               But consultation time has not arrived.
-            ============================================= */
+            else if (appointment.status === "Rejected") {
+
+                actionHTML = `
+                    <button
+                        class="consult-button status-button rejected"
+                        disabled>
+                        Rejected
+                    </button>
+                `;
+
+            }
+
+
+            else if (appointment.status === "Completed") {
+
+                actionHTML = `
+                    <button
+                        class="consult-button status-button completed"
+                        disabled>
+                        Completed
+                    </button>
+                `;
+
+            }
+
 
             else if (
                 appointment.status === "Confirmed"
             ) {
 
-                statusClass = "confirmed";
-
-                displayStatus = "Confirmed";
-
-
                 /*
-                 * IMPORTANT:
-                 * Only after doctor has confirmed
-                 * do we check the consultation time.
+                 * Confirmed does NOT mean
+                 * consultation can start immediately.
                  */
 
                 if (isConsultationTime(appointment)) {
 
-                    buttonHTML = `
-
+                    actionHTML = `
                         <button
                             class="consult-button"
-                            onclick="openConsultation(${appointment.id})"
-                        >
+                            data-id="${appointment.id}">
                             Consult
                         </button>
                     `;
 
                 } else {
 
-                    buttonHTML = `
-
+                    actionHTML = `
                         <button
-                            class="consult-button disabled"
-                            disabled
-                        >
+                            class="consult-button status-button confirmed"
+                            disabled>
                             Confirmed
                         </button>
                     `;
+
                 }
+
             }
 
-
-            /* =============================================
-               IN PROGRESS
-            ============================================= */
 
             else if (
                 appointment.status === "In Progress"
             ) {
 
-                statusClass = "in-progress";
-
-                displayStatus =
-                    "In Progress";
-
-                buttonHTML = `
-
+                actionHTML = `
                     <button
                         class="consult-button"
-                        onclick="openConsultation(${appointment.id})"
-                    >
+                        data-id="${appointment.id}">
                         Consult
                     </button>
                 `;
+
             }
 
-
-            /* =============================================
-               COMPLETED
-            ============================================= */
-
-            else if (
-                appointment.status === "Completed"
-            ) {
-
-                statusClass = "completed";
-
-                displayStatus =
-                    "Completed";
-
-                buttonHTML = `
-
-                    <button
-                        class="consult-button disabled"
-                        disabled
-                    >
-                        Completed
-                    </button>
-                `;
-            }
-
-
-            /* =============================================
-               REJECTED
-            ============================================= */
-
-            else if (
-                appointment.status === "Rejected"
-            ) {
-
-                statusClass = "rejected";
-
-                displayStatus =
-                    "Rejected";
-
-                buttonHTML = `
-
-                    <button
-                        class="consult-button disabled"
-                        disabled
-                    >
-                        Rejected
-                    </button>
-                `;
-            }
-
-
-            /* =============================================
-               CARD HTML
-            ============================================= */
 
             card.innerHTML = `
 
-                <div class="consultation-card-header">
+                <div class="consultation-appointment-header">
 
-                    <div>
+                    <div class="doctor-avatar">
+                        ${getInitials(
+                            appointment.doctorName
+                        )}
+                    </div>
+
+
+                    <div class="consultation-appointment-details">
 
                         <h3>
                             ${escapeHTML(
@@ -919,140 +895,127 @@ document.addEventListener("DOMContentLoaded", function () {
                             )}
                         </h3>
 
+
                         <p>
                             ${escapeHTML(
                                 appointment.specialization
                             )}
                         </p>
 
-                    </div>
+
+                        <div class="consultation-meta">
+
+                            <span>
+                                📅
+                                ${formatDate(
+                                    appointment.date
+                                )}
+                            </span>
 
 
-                    <span
-                        class="appointment-status ${statusClass}"
-                    >
-                        ${displayStatus}
-                    </span>
-
-                </div>
-
-
-                <div class="consultation-details">
-
-                    <div class="consultation-detail">
-
-                        <span>Date</span>
-
-                        <strong>
-                            ${formatDate(
-                                appointment.date
-                            )}
-                        </strong>
-
-                    </div>
+                            <span>
+                                ⏰
+                                ${escapeHTML(
+                                    appointment.time
+                                )}
+                            </span>
 
 
-                    <div class="consultation-detail">
+                            <span>
+                                💰
+                                ${escapeHTML(
+                                    appointment.fee
+                                )}
+                            </span>
 
-                        <span>Time</span>
-
-                        <strong>
-                            ${escapeHTML(
-                                appointment.time
-                            )}
-                        </strong>
+                        </div>
 
                     </div>
 
 
-                    <div class="consultation-detail">
-
-                        <span>Fee</span>
-
-                        <strong>
-                            ₹${parseAmount(
-                                appointment.fee
-                            )}
-                        </strong>
-
-                    </div>
+                    ${actionHTML}
 
                 </div>
 
-
-                <div class="consultation-concern">
-
-                    <span>Concern</span>
-
-                    <p>
-                        ${escapeHTML(
-                            appointment.concern || "—"
-                        )}
-                    </p>
-
-                </div>
-
-
-                <div class="consultation-card-footer">
-
-                    ${buttonHTML}
-
-                </div>
             `;
 
 
-            consultationsContainer.appendChild(card);
+            const consultButton =
+                card.querySelector(
+                    ".consult-button:not([disabled])"
+                );
+
+
+            if (consultButton) {
+
+                consultButton.addEventListener(
+                    "click",
+                    function () {
+
+                        openConsultation(
+                            appointment.id
+                        );
+
+                    }
+                );
+
+            }
+
+
+            container.appendChild(card);
+
         });
+
     }
 
 
     /* =====================================================
        CONSULTATION TIME
        
-       CONSULT BUTTON BECOMES AVAILABLE
-       15 MINUTES BEFORE APPOINTMENT TIME
+       Consultation becomes available
+       15 minutes before scheduled time.
     ===================================================== */
 
     function isConsultationTime(appointment) {
 
-        if (!appointment.date ||
-            !appointment.time) {
-
+        if (
+            !appointment ||
+            !appointment.date ||
+            !appointment.time
+        ) {
             return false;
         }
 
 
         const appointmentDate =
             new Date(
-                `${appointment.date}T${convertTimeTo24Hour(
+                appointment.date +
+                "T" +
+                convertTimeTo24Hour(
                     appointment.time
-                )}`
+                )
             );
 
 
-        const now =
-            new Date();
-
-
-        /*
-         * Consultation can be joined
-         * 15 minutes before the scheduled time.
-         */
-
-        const fifteenMinutesBefore =
-            new Date(
+        if (
+            Number.isNaN(
                 appointmentDate.getTime()
-                - (15 * 60 * 1000)
-            );
+            )
+        ) {
+            return false;
+        }
 
 
-        /*
-         * Allow consultation from
-         * 15 minutes before until the
-         * appointment time/end window.
-         */
+        const consultationStart =
+            appointmentDate.getTime() -
+            (15 * 60 * 1000);
 
-        return now >= fifteenMinutesBefore;
+
+        return (
+            Date.now() >=
+            consultationStart
+        );
+
     }
 
 
@@ -1060,56 +1023,78 @@ document.addEventListener("DOMContentLoaded", function () {
        OPEN CONSULTATION
     ===================================================== */
 
-    window.openConsultation = function (appointmentId) {
+    function openConsultation(
+        appointmentId
+    ) {
 
-        const appointments =
-            JSON.parse(
-                localStorage.getItem(
-                    "patientAppointments"
-                )
-            ) || [];
+        let appointments =
+            getAppointments();
 
 
-        const appointment =
+        currentAppointment =
             appointments.find(
-                item => item.id === appointmentId
+                function (appointment) {
+
+                    return (
+                        Number(appointment.id) ===
+                        Number(appointmentId)
+                    );
+
+                }
             );
 
 
-        if (!appointment) {
+        if (!currentAppointment) {
+
+            alert(
+                "Consultation not found."
+            );
+
             return;
         }
 
 
         /*
-         * Do not allow consultation
-         * unless doctor has accepted.
+         * Patient cannot enter consultation
+         * while waiting for doctor.
          */
 
         if (
-            appointment.status !== "Confirmed" &&
-            appointment.status !== "In Progress"
+            currentAppointment.status ===
+            "Waiting"
         ) {
 
             alert(
-                "The doctor has not confirmed this consultation yet."
+                "Please wait for the doctor to confirm your consultation."
             );
 
             return;
         }
 
 
-        /*
-         * If it is Confirmed, check time.
-         */
-
         if (
-            appointment.status === "Confirmed" &&
-            !isConsultationTime(appointment)
+            currentAppointment.status ===
+            "Rejected"
         ) {
 
             alert(
-                "The consultation is not available yet."
+                "This consultation was rejected by the doctor."
+            );
+
+            return;
+        }
+
+
+        if (
+            currentAppointment.status ===
+            "Confirmed" &&
+            !isConsultationTime(
+                currentAppointment
+            )
+        ) {
+
+            alert(
+                "Your consultation will become available 15 minutes before the scheduled time."
             );
 
             return;
@@ -1117,171 +1102,248 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-         * Change status to In Progress
-         * when consultation starts.
+         * Once patient enters the room,
+         * status becomes In Progress.
          */
 
         if (
-            appointment.status === "Confirmed"
+            currentAppointment.status ===
+            "Confirmed"
         ) {
 
-            appointment.status =
+            currentAppointment.status =
                 "In Progress";
 
 
-            const index =
-                appointments.findIndex(
-                    item => item.id === appointmentId
+            appointments =
+                appointments.map(
+                    function (appointment) {
+
+                        if (
+                            Number(appointment.id) ===
+                            Number(currentAppointment.id)
+                        ) {
+                            return currentAppointment;
+                        }
+
+                        return appointment;
+
+                    }
                 );
 
 
-            appointments[index] =
-                appointment;
-
-
-            localStorage.setItem(
-                "patientAppointments",
-                JSON.stringify(appointments)
+            saveAppointments(
+                appointments
             );
+
         }
+
+
+        const roomDoctorName =
+            document.getElementById(
+                "roomDoctorName"
+            );
+
+
+        const roomSpecialization =
+            document.getElementById(
+                "roomSpecialization"
+            );
+
+
+        const roomConcern =
+            document.getElementById(
+                "roomConcern"
+            );
 
 
         if (roomDoctorName) {
 
             roomDoctorName.textContent =
-                appointment.doctorName;
+                currentAppointment.doctorName;
+
         }
 
 
         if (roomSpecialization) {
 
             roomSpecialization.textContent =
-                appointment.specialization;
+                currentAppointment.specialization;
+
         }
 
 
         if (roomConcern) {
 
             roomConcern.textContent =
-                appointment.concern || "No concern provided.";
+                currentAppointment.concern;
+
         }
 
 
-        loadPatientPrescription(appointment);
+        /*
+         * Patient can VIEW prescriptions.
+         * Patient cannot add/edit prescriptions.
+         */
+
+        loadPatientPrescription(
+            currentAppointment.id
+        );
 
 
-        loadAppointmentMessages(appointmentId);
+        showPage(
+            "consultation-room"
+        );
 
-
-        showPage("consultation-room");
-    };
-
-
-    /* =====================================================
-       LOAD PRESCRIPTION
-       
-       PATIENT CAN ONLY VIEW.
-       PATIENT CANNOT CREATE PRESCRIPTIONS.
-    ===================================================== */
-
-    function loadPatientPrescription(appointment) {
-
-        if (!patientPrescriptionList) {
-            return;
-        }
-
-
-        const prescriptions =
-            appointment.prescription || [];
-
-
-        patientPrescriptionList.innerHTML = "";
-
-
-        if (prescriptions.length === 0) {
-
-            patientPrescriptionList.innerHTML = `
-
-                <p class="no-prescription">
-                    No prescription has been added by the doctor yet.
-                </p>
-            `;
-
-            return;
-        }
-
-
-        prescriptions.forEach(prescription => {
-
-            const item =
-                document.createElement("div");
-
-            item.className =
-                "prescription-item";
-
-
-            item.innerHTML = `
-
-                <h4>
-                    ${escapeHTML(
-                        prescription.medicineName
-                    )}
-                </h4>
-
-                <p>
-                    <strong>Instructions:</strong>
-                    ${escapeHTML(
-                        prescription.instruction
-                    )}
-                </p>
-
-                <p>
-                    <strong>Duration:</strong>
-                    ${escapeHTML(
-                        prescription.duration
-                    )}
-                </p>
-            `;
-
-
-            patientPrescriptionList.appendChild(item);
-        });
     }
 
 
     /* =====================================================
-       LOAD MESSAGES
+       PATIENT PRESCRIPTION
+       
+       IMPORTANT:
+       Patient-side prescription form is hidden.
+       Patient can only view medicines added
+       by doctor.
     ===================================================== */
 
-    function loadAppointmentMessages(appointmentId) {
+    function disablePatientPrescriptionEditing() {
 
-        if (!chatContainer) {
+        const prescriptionForm =
+            document.querySelector(
+                ".doctor-prescription-form"
+            );
+
+
+        if (prescriptionForm) {
+
+            prescriptionForm.style.display =
+                "none";
+
+        }
+
+
+        const addMedicineBtn =
+            document.getElementById(
+                "addMedicineBtn"
+            );
+
+
+        if (addMedicineBtn) {
+
+            addMedicineBtn.style.display =
+                "none";
+
+        }
+
+    }
+
+
+    function loadPatientPrescription(
+        appointmentId
+    ) {
+
+        const prescriptionList =
+            document.getElementById(
+                "prescriptionList"
+            );
+
+
+        if (!prescriptionList) {
             return;
         }
 
 
-        const allMessages =
+        const allPrescriptions =
             JSON.parse(
                 localStorage.getItem(
-                    "appointmentMessages"
+                    "patientPrescriptions"
                 )
             ) || {};
 
 
-        const messages =
-            allMessages[appointmentId] || [];
+        const prescriptions =
+            allPrescriptions[
+                String(appointmentId)
+            ] || [];
 
 
-        chatContainer.innerHTML = "";
+        prescriptionList.innerHTML =
+            "";
 
 
-        messages.forEach(message => {
+        if (prescriptions.length === 0) {
 
-            appendMessageToChat(
-                message.text,
-                message.sender
-            );
-        });
+            prescriptionList.innerHTML = `
+                <div class="prescription-item">
+
+                    <div>
+                        <strong>
+                            No prescription yet
+                        </strong>
+
+                        <p>
+                            Your doctor has not added a prescription for this consultation.
+                        </p>
+                    </div>
+
+                </div>
+            `;
+
+            return;
+        }
+
+
+        prescriptions.forEach(
+            function (prescription) {
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "prescription-item";
+
+
+                item.innerHTML = `
+
+                    <div>
+
+                        <strong>
+                            ${escapeHTML(
+                                prescription.medicine
+                            )}
+                        </strong>
+
+                        <p>
+                            ${escapeHTML(
+                                prescription.instruction ||
+                                "As directed by doctor"
+                            )}
+                        </p>
+
+                    </div>
+
+
+                    <span>
+                        ${escapeHTML(
+                            prescription.duration ||
+                            "As prescribed"
+                        )}
+                    </span>
+
+                `;
+
+
+                prescriptionList.appendChild(
+                    item
+                );
+
+            }
+        );
+
     }
 
 
@@ -1305,73 +1367,113 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        const appointments =
-            JSON.parse(
-                localStorage.getItem(
-                    "patientAppointments"
-                )
-            ) || [];
-
-
-        const currentAppointment =
-            appointments.find(
-                appointment =>
-                    appointment.status === "In Progress"
+        const messageElement =
+            document.createElement(
+                "div"
             );
 
 
-        if (!currentAppointment) {
+        messageElement.className =
+            "chat-message patient-message";
 
-            alert(
-                "No active consultation found."
+
+        const currentTime =
+            new Date().toLocaleTimeString(
+                [],
+                {
+                    hour: "2-digit",
+                    minute: "2-digit"
+                }
             );
 
-            return;
+
+        messageElement.innerHTML = `
+
+            <div class="message-label">
+                You
+            </div>
+
+            <p>
+                ${escapeHTML(message)}
+            </p>
+
+            <small>
+                ${currentTime}
+            </small>
+
+        `;
+
+
+        if (chatContainer) {
+
+            chatContainer.appendChild(
+                messageElement
+            );
+
+
+            chatContainer.scrollTop =
+                chatContainer.scrollHeight;
+
         }
 
 
-        const appointmentId =
-            currentAppointment.id;
+        /*
+         * Save message locally.
+         */
+
+        if (currentAppointment) {
+
+            const allMessages =
+                JSON.parse(
+                    localStorage.getItem(
+                        "consultationMessages"
+                    )
+                ) || {};
 
 
-        const allMessages =
-            JSON.parse(
-                localStorage.getItem(
-                    "appointmentMessages"
+            const appointmentId =
+                String(
+                    currentAppointment.id
+                );
+
+
+            if (
+                !allMessages[appointmentId]
+            ) {
+
+                allMessages[
+                    appointmentId
+                ] = [];
+
+            }
+
+
+            allMessages[
+                appointmentId
+            ].push({
+
+                sender: "patient",
+
+                message: message,
+
+                time:
+                    new Date().toISOString()
+
+            });
+
+
+            localStorage.setItem(
+                "consultationMessages",
+                JSON.stringify(
+                    allMessages
                 )
-            ) || {};
+            );
 
-
-        if (!allMessages[appointmentId]) {
-
-            allMessages[appointmentId] = [];
         }
-
-
-        allMessages[appointmentId].push({
-
-            text: message,
-
-            sender: "patient",
-
-            time:
-                new Date().toISOString()
-        });
-
-
-        localStorage.setItem(
-            "appointmentMessages",
-            JSON.stringify(allMessages)
-        );
-
-
-        appendMessageToChat(
-            message,
-            "patient"
-        );
 
 
         messageInput.value = "";
+
     }
 
 
@@ -1381,6 +1483,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "click",
             sendMessage
         );
+
     }
 
 
@@ -1398,51 +1501,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     event.preventDefault();
 
                     sendMessage();
+
                 }
+
             }
         );
-    }
 
-
-    /* =====================================================
-       APPEND MESSAGE
-    ===================================================== */
-
-    function appendMessageToChat(
-        message,
-        sender
-    ) {
-
-        if (!chatContainer) {
-            return;
-        }
-
-
-        const messageElement =
-            document.createElement("div");
-
-
-        messageElement.className =
-            sender === "patient"
-                ? "chat-message patient-message"
-                : "chat-message doctor-message";
-
-
-        messageElement.innerHTML = `
-
-            <div class="message-bubble">
-                ${escapeHTML(message)}
-            </div>
-        `;
-
-
-        chatContainer.appendChild(
-            messageElement
-        );
-
-
-        chatContainer.scrollTop =
-            chatContainer.scrollHeight;
     }
 
 
@@ -1456,22 +1520,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "click",
             function () {
 
-                const appointments =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "patientAppointments"
-                        )
-                    ) || [];
-
-
-                const currentAppointment =
-                    appointments.find(
-                        appointment =>
-                            appointment.status ===
-                            "In Progress"
-                    );
-
-
                 if (!currentAppointment) {
 
                     alert(
@@ -1482,6 +1530,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
+                const confirmed =
+                    confirm(
+                        "Are you sure you want to end this consultation?"
+                    );
+
+
+                if (!confirmed) {
+                    return;
+                }
+
+
+                /*
+                 * Consultation is finished,
+                 * but appointment becomes Completed
+                 * only after payment.
+                 */
+
                 localStorage.setItem(
                     "currentPaymentAppointment",
                     JSON.stringify(
@@ -1490,33 +1555,69 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-                if (paymentDoctor)
+                const paymentDoctor =
+                    document.getElementById(
+                        "paymentDoctor"
+                    );
+
+
+                const paymentSpecialization =
+                    document.getElementById(
+                        "paymentSpecialization"
+                    );
+
+
+                const paymentAmount =
+                    document.getElementById(
+                        "paymentAmount"
+                    );
+
+
+                const paymentTotal =
+                    document.getElementById(
+                        "paymentTotal"
+                    );
+
+
+                if (paymentDoctor) {
+
                     paymentDoctor.textContent =
                         currentAppointment.doctorName;
 
+                }
 
-                if (paymentSpecialization)
+
+                if (paymentSpecialization) {
+
                     paymentSpecialization.textContent =
                         currentAppointment.specialization;
 
+                }
 
-                if (paymentAmount)
+
+                if (paymentAmount) {
+
                     paymentAmount.textContent =
-                        `₹${parseAmount(
-                            currentAppointment.fee
-                        )}`;
+                        currentAppointment.fee;
+
+                }
 
 
-                if (paymentTotal)
+                if (paymentTotal) {
+
                     paymentTotal.textContent =
-                        `₹${parseAmount(
-                            currentAppointment.fee
-                        )}`;
+                        currentAppointment.fee;
+
+                }
 
 
-                showPage("payments");
+                showPage(
+                    "consultation-payment"
+                );
+
             }
         );
+
     }
 
 
@@ -1530,7 +1631,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "click",
             function () {
 
-                const currentAppointment =
+                const storedAppointment =
                     JSON.parse(
                         localStorage.getItem(
                             "currentPaymentAppointment"
@@ -1538,70 +1639,64 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
 
-                if (!currentAppointment) {
+                if (!storedAppointment) {
 
                     alert(
-                        "No payment is pending."
+                        "Payment information not found."
                     );
 
                     return;
                 }
 
 
-                const paymentMethodElement =
-                    document.querySelector(
-                        'input[name="paymentMethod"]:checked'
+                let appointments =
+                    getAppointments();
+
+
+                appointments =
+                    appointments.map(
+                        function (appointment) {
+
+                            if (
+                                Number(appointment.id) ===
+                                Number(storedAppointment.id)
+                            ) {
+
+                                return {
+
+                                    ...appointment,
+
+                                    status:
+                                        "Completed",
+
+                                    paymentStatus:
+                                        "Paid",
+
+                                    paidAt:
+                                        new Date()
+                                            .toISOString()
+
+                                };
+
+                            }
+
+
+                            return appointment;
+
+                        }
                     );
 
 
-                const paymentMethod =
-                    paymentMethodElement
-                        ? paymentMethodElement.value
-                        : "Online";
-
-
-                const appointments =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "patientAppointments"
-                        )
-                    ) || [];
-
-
-                const appointmentIndex =
-                    appointments.findIndex(
-                        appointment =>
-                            appointment.id ===
-                            currentAppointment.id
-                    );
-
-
-                if (appointmentIndex !== -1) {
-
-                    appointments[
-                        appointmentIndex
-                    ].status = "Completed";
-
-
-                    appointments[
-                        appointmentIndex
-                    ].paymentStatus = "Paid";
-                }
-
-
-                localStorage.setItem(
-                    "patientAppointments",
-                    JSON.stringify(
-                        appointments
-                    )
+                saveAppointments(
+                    appointments
                 );
 
 
-                /* =========================================
-                   SAVE PAYMENT
-                ========================================= */
+                /*
+                 * Save payment.
+                 */
 
-                const payments =
+                let payments =
                     JSON.parse(
                         localStorage.getItem(
                             "patientPayments"
@@ -1611,34 +1706,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 payments.push({
 
-                    id: Date.now(),
+                    id:
+                        Date.now(),
 
                     appointmentId:
-                        currentAppointment.id,
+                        storedAppointment.id,
 
                     doctorName:
-                        currentAppointment.doctorName,
+                        storedAppointment.doctorName,
 
                     specialization:
-                        currentAppointment.specialization,
+                        storedAppointment.specialization,
+
+                    date:
+                        storedAppointment.date,
 
                     amount:
-                        currentAppointment.fee,
-
-                    paymentMethod:
-                        paymentMethod,
+                        storedAppointment.fee,
 
                     status:
                         "Paid",
 
-                    date:
-                        new Date().toISOString()
+                    paymentMethod:
+                        getSelectedPaymentMethod()
+
                 });
 
 
                 localStorage.setItem(
                     "patientPayments",
-                    JSON.stringify(payments)
+                    JSON.stringify(
+                        payments
+                    )
                 );
 
 
@@ -1647,19 +1746,47 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
+                currentAppointment =
+                    null;
+
+
                 alert(
-                    "Payment successful. Consultation completed."
+                    "Payment successful! Consultation completed."
                 );
 
 
-                renderHistory();
-                renderPayments();
                 renderConsultations();
 
+                renderHistory();
 
-                showPage("history");
+                renderPayments();
+
+                showPage(
+                    "history"
+                );
+
             }
         );
+
+    }
+
+
+    /* =====================================================
+       PAYMENT METHOD
+    ===================================================== */
+
+    function getSelectedPaymentMethod() {
+
+        const selected =
+            document.querySelector(
+                'input[name="paymentMethod"]:checked'
+            );
+
+
+        return selected
+            ? selected.value
+            : "UPI";
+
     }
 
 
@@ -1669,32 +1796,161 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderHistory() {
 
-        if (!historyTableBody) {
+        const tableBody =
+            document.getElementById(
+                "historyTableBody"
+            );
+
+
+        const emptyHistory =
+            document.getElementById(
+                "emptyHistory"
+            );
+
+
+        const completedCount =
+            document.getElementById(
+                "completedCount"
+            );
+
+
+        const historyTotalFees =
+            document.getElementById(
+                "historyTotalFees"
+            );
+
+
+        if (!tableBody) {
             return;
         }
 
 
         const appointments =
-            JSON.parse(
-                localStorage.getItem(
-                    "patientAppointments"
-                )
-            ) || [];
+            getAppointments();
 
 
         const completedAppointments =
             appointments.filter(
-                appointment =>
-                    appointment.status === "Completed"
+                function (appointment) {
+
+                    return (
+                        appointment.status ===
+                        "Completed"
+                    );
+
+                }
             );
 
 
-        historyTableBody.innerHTML = "";
+        tableBody.innerHTML =
+            "";
+
+
+        if (completedCount) {
+
+            completedCount.textContent =
+                completedAppointments.length;
+
+        }
+
+
+        let total = 0;
+
+
+        completedAppointments.forEach(
+            function (appointment) {
+
+                total += parseAmount(
+                    appointment.fee
+                );
+
+
+                const row =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                row.innerHTML = `
+
+                    <td>
+                        ${escapeHTML(
+                            appointment.doctorName
+                        )}
+                    </td>
+
+
+                    <td>
+                        ${escapeHTML(
+                            appointment.specialization
+                        )}
+                    </td>
+
+
+                    <td>
+                        ${formatDate(
+                            appointment.date
+                        )}
+                    </td>
+
+
+                    <td>
+                        ${escapeHTML(
+                            appointment.time
+                        )}
+                    </td>
+
+
+                    <td>
+                        ${escapeHTML(
+                            appointment.fee
+                        )}
+                    </td>
+
+
+                    <td>
+
+                        <span class="status completed">
+                            Completed
+                        </span>
+
+                    </td>
+
+                `;
+
+
+                tableBody.appendChild(
+                    row
+                );
+
+            }
+        );
+
+
+        if (historyTotalFees) {
+
+            historyTotalFees.textContent =
+                "₹" + total;
+
+        }
+
+
+        const historyCard =
+            document.querySelector(
+                ".history-card"
+            );
 
 
         if (
-            completedAppointments.length === 0
+            completedAppointments.length ===
+            0
         ) {
+
+            if (historyCard) {
+                historyCard.style.display =
+                    "none";
+            }
+
 
             if (emptyHistory) {
                 emptyHistory.style.display =
@@ -1703,84 +1959,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         } else {
 
+            if (historyCard) {
+                historyCard.style.display =
+                    "block";
+            }
+
+
             if (emptyHistory) {
                 emptyHistory.style.display =
                     "none";
             }
 
-
-            completedAppointments.forEach(
-                appointment => {
-
-                    const row =
-                        document.createElement("tr");
-
-
-                    row.innerHTML = `
-
-                        <td>
-                            ${formatDate(
-                                appointment.date
-                            )}
-                        </td>
-
-                        <td>
-                            ${escapeHTML(
-                                appointment.doctorName
-                            )}
-                        </td>
-
-                        <td>
-                            ${escapeHTML(
-                                appointment.specialization
-                            )}
-                        </td>
-
-                        <td>
-                            ₹${parseAmount(
-                                appointment.fee
-                            )}
-                        </td>
-
-                        <td>
-                            <span class="status completed">
-                                Completed
-                            </span>
-                        </td>
-                    `;
-
-
-                    historyTableBody.appendChild(
-                        row
-                    );
-                }
-            );
         }
 
-
-        if (completedCount) {
-
-            completedCount.textContent =
-                completedAppointments.length;
-        }
-
-
-        const totalFees =
-            completedAppointments.reduce(
-                (total, appointment) =>
-                    total +
-                    parseAmount(
-                        appointment.fee
-                    ),
-                0
-            );
-
-
-        if (historyTotalFees) {
-
-            historyTotalFees.textContent =
-                `₹${totalFees}`;
-        }
     }
 
 
@@ -1790,7 +1981,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderPayments() {
 
-        if (!paymentTableBody) {
+        const tableBody =
+            document.getElementById(
+                "paymentTableBody"
+            );
+
+
+        if (!tableBody) {
             return;
         }
 
@@ -1803,179 +2000,115 @@ document.addEventListener("DOMContentLoaded", function () {
             ) || [];
 
 
-        paymentTableBody.innerHTML = "";
+        tableBody.innerHTML =
+            "";
 
 
-        if (payments.length === 0) {
+        payments.forEach(
+            function (payment) {
 
-            paymentTableBody.innerHTML = `
+                const row =
+                    document.createElement(
+                        "tr"
+                    );
 
-                <tr>
 
-                    <td
-                        colspan="6"
-                        style="text-align:center;"
-                    >
-                        No payment records found.
+                row.innerHTML = `
+
+                    <td>
+                        General Consultation
                     </td>
 
-                </tr>
-            `;
 
-            return;
-        }
-
-
-        payments.forEach(payment => {
-
-            const row =
-                document.createElement("tr");
+                    <td>
+                        ${escapeHTML(
+                            payment.doctorName
+                        )}
+                    </td>
 
 
-            row.innerHTML = `
-
-                <td>
-                    ${formatDateOnly(
-                        payment.date
-                    )}
-                </td>
-
-                <td>
-                    ${escapeHTML(
-                        payment.doctorName
-                    )}
-                </td>
-
-                <td>
-                    ${escapeHTML(
-                        payment.specialization
-                    )}
-                </td>
-
-                <td>
-                    ₹${parseAmount(
-                        payment.amount
-                    )}
-                </td>
-
-                <td>
-                    ${escapeHTML(
-                        payment.paymentMethod
-                    )}
-                </td>
-
-                <td>
-                    <span class="status paid">
-                        Paid
-                    </span>
-                </td>
-            `;
+                    <td>
+                        ${formatDate(
+                            payment.date
+                        )}
+                    </td>
 
 
-            paymentTableBody.appendChild(row);
-        });
-    }
+                    <td>
+                        ${escapeHTML(
+                            payment.amount
+                        )}
+                    </td>
 
 
-    /* =====================================================
-       FIND DOCTOR FROM CONSULTATIONS
-    ===================================================== */
+                    <td>
 
-    if (findDoctorFromConsultations) {
+                        <span class="status paid">
+                            Paid
+                        </span>
 
-        findDoctorFromConsultations.addEventListener(
-            "click",
-            function () {
+                    </td>
 
-                showPage("find-doctor");
+                `;
+
+
+                tableBody.appendChild(
+                    row
+                );
+
             }
         );
+
     }
 
 
     /* =====================================================
-       EDITABLE PATIENT PROFILE
+       FIND DOCTOR BUTTONS
     ===================================================== */
 
-    const editProfileBtn =
-        document.getElementById(
-            "editProfileBtn"
-        );
-
-    const saveProfileBtn =
-        document.getElementById(
-            "saveProfileBtn"
-        );
-
-    const cancelProfileBtn =
-        document.getElementById(
-            "cancelProfileBtn"
+    const findDoctorButtons =
+        document.querySelectorAll(
+            "#findDoctorFromConsultations, #findDoctorFromHistory"
         );
 
 
-    const profileName =
-        document.getElementById(
-            "profileName"
-        );
+    findDoctorButtons.forEach(
+        function (button) {
 
-    const profileEmail =
-        document.getElementById(
-            "profileEmail"
-        );
+            button.addEventListener(
+                "click",
+                function () {
 
-    const profilePhone =
-        document.getElementById(
-            "profilePhone"
-        );
+                    showPage(
+                        "find-doctor"
+                    );
 
-    const profileDob =
-        document.getElementById(
-            "profileDob"
-        );
+                }
+            );
 
-    const profileGender =
-        document.getElementById(
-            "profileGender"
-        );
-
-    const profileAddress =
-        document.getElementById(
-            "profileAddress"
-        );
-
-
-    const profileDisplayName =
-        document.getElementById(
-            "profileDisplayName"
-        );
-
-    const profileAvatar =
-        document.getElementById(
-            "profileAvatar"
-        );
-
-
-    const profileFields = [
-
-        profileName,
-
-        profileEmail,
-
-        profilePhone,
-
-        profileDob,
-
-        profileGender,
-
-        profileAddress
-    ];
+        }
+    );
 
 
     /* =====================================================
-       LOAD PROFILE
+       PROFILE
+       
+       We do NOT change your existing HTML design.
+       The edit controls are added through JavaScript.
     ===================================================== */
 
-    function loadPatientProfile() {
+    function getProfile() {
+
+        const defaultProfile = {
+
+            name: "John Doe",
+
+            email: "john@example.com",
+
+            phone: "+91 XXXXX XXXXX"
+
+        };
+
 
         const savedProfile =
             JSON.parse(
@@ -1985,251 +2118,1173 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-        if (!savedProfile) {
+        return savedProfile ||
+            defaultProfile;
 
-            updateProfileHeader();
+    }
+
+
+    function saveProfileData(profile) {
+
+        localStorage.setItem(
+            "patientProfile",
+            JSON.stringify(
+                profile
+            )
+        );
+
+    }
+
+
+    function loadProfile() {
+
+        const profile =
+            getProfile();
+
+
+        /*
+         * Update header.
+         */
+
+        const headerName =
+            document.querySelector(
+                ".profile-info strong"
+            );
+
+
+        const profileImage =
+            document.querySelector(
+                ".profile-image"
+            );
+
+
+        if (headerName) {
+
+            headerName.textContent =
+                profile.name;
+
+        }
+
+
+        if (profileImage) {
+
+            profileImage.textContent =
+                getInitials(
+                    profile.name
+                );
+
+        }
+
+
+        /*
+         * Update dashboard greeting.
+         */
+
+        const greeting =
+            document.querySelector(
+                ".greeting"
+            );
+
+
+        if (greeting) {
+
+            const firstName =
+                profile.name
+                    .trim()
+                    .split(" ")[0];
+
+
+            greeting.textContent =
+                "Good morning, " +
+                firstName +
+                "! 👋";
+
+        }
+
+
+        /*
+         * Update profile page.
+         */
+
+        const profileCard =
+            document.querySelector(
+                ".profile-card"
+            );
+
+
+        if (!profileCard) {
+            return;
+        }
+
+
+        const profileName =
+            profileCard.querySelector(
+                "h2"
+            );
+
+
+        const profileEmail =
+            profileCard.querySelector(
+                ".profile-information div:nth-child(1) span"
+            );
+
+
+        const profilePhone =
+            profileCard.querySelector(
+                ".profile-information div:nth-child(2) span"
+            );
+
+
+        const largeProfile =
+            profileCard.querySelector(
+                ".large-profile"
+            );
+
+
+        if (profileName) {
+
+            profileName.textContent =
+                profile.name;
+
+        }
+
+
+        if (profileEmail) {
+
+            profileEmail.textContent =
+                profile.email;
+
+        }
+
+
+        if (profilePhone) {
+
+            profilePhone.textContent =
+                profile.phone;
+
+        }
+
+
+        if (largeProfile) {
+
+            largeProfile.textContent =
+                getInitials(
+                    profile.name
+                );
+
+        }
+
+
+        createProfileEditControls(
+            profileCard,
+            profile
+        );
+
+    }
+
+
+    function createProfileEditControls(
+        profileCard,
+        profile
+    ) {
+
+        /*
+         * Prevent duplicate controls.
+         */
+
+        let editor =
+            document.getElementById(
+                "profileEditor"
+            );
+
+
+        if (!editor) {
+
+            editor =
+                document.createElement(
+                    "div"
+                );
+
+
+            editor.id =
+                "profileEditor";
+
+
+            editor.style.display =
+                "none";
+
+
+            editor.innerHTML = `
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="profileEditName"
+                        placeholder="Full Name">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="profileEditEmail"
+                        placeholder="Email">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone
+                    </label>
+
+                    <input
+                        type="text"
+                        id="profileEditPhone"
+                        placeholder="Phone">
+
+                </div>
+
+
+                <div
+                    style="
+                        display:flex;
+                        gap:10px;
+                        margin-top:20px;
+                    "
+                >
+
+                    <button
+                        class="primary-button"
+                        id="saveProfileBtn"
+                        type="button">
+                        Save Profile
+                    </button>
+
+
+                    <button
+                        class="secondary-button"
+                        id="cancelProfileBtn"
+                        type="button">
+                        Cancel
+                    </button>
+
+                </div>
+
+            `;
+
+
+            profileCard.appendChild(
+                editor
+            );
+
+
+            const editButton =
+                document.createElement(
+                    "button"
+                );
+
+
+            editButton.id =
+                "editProfileBtn";
+
+
+            editButton.className =
+                "primary-button";
+
+
+            editButton.type =
+                "button";
+
+
+            editButton.textContent =
+                "Edit Profile";
+
+
+            editButton.style.marginTop =
+                "20px";
+
+
+            profileCard.appendChild(
+                editButton
+            );
+
+
+            editButton.addEventListener(
+                "click",
+                function () {
+
+                    editor.style.display =
+                        "block";
+
+
+                    editButton.style.display =
+                        "none";
+
+
+                    document.getElementById(
+                        "profileEditName"
+                    ).value =
+                        getProfile().name;
+
+
+                    document.getElementById(
+                        "profileEditEmail"
+                    ).value =
+                        getProfile().email;
+
+
+                    document.getElementById(
+                        "profileEditPhone"
+                    ).value =
+                        getProfile().phone;
+
+                }
+            );
+
+
+            document.getElementById(
+                "cancelProfileBtn"
+            ).addEventListener(
+                "click",
+                function () {
+
+                    editor.style.display =
+                        "none";
+
+
+                    editButton.style.display =
+                        "inline-block";
+
+                }
+            );
+
+
+            document.getElementById(
+                "saveProfileBtn"
+            ).addEventListener(
+                "click",
+                function () {
+
+                    const name =
+                        document.getElementById(
+                            "profileEditName"
+                        ).value.trim();
+
+
+                    const email =
+                        document.getElementById(
+                            "profileEditEmail"
+                        ).value.trim();
+
+
+                    const phone =
+                        document.getElementById(
+                            "profileEditPhone"
+                        ).value.trim();
+
+
+                    if (!name) {
+
+                        alert(
+                            "Please enter your name."
+                        );
+
+                        return;
+                    }
+
+
+                    if (!email) {
+
+                        alert(
+                            "Please enter your email."
+                        );
+
+                        return;
+                    }
+
+
+                    const updatedProfile = {
+
+                        name:
+                            name,
+
+                        email:
+                            email,
+
+                        phone:
+                            phone ||
+                            "+91 XXXXX XXXXX"
+
+                    };
+
+
+                    saveProfileData(
+                        updatedProfile
+                    );
+
+
+                    editor.style.display =
+                        "none";
+
+
+                    editButton.style.display =
+                        "inline-block";
+
+
+                    loadProfile();
+
+
+                    alert(
+                        "Profile updated successfully."
+                    );
+
+                }
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       SETTINGS
+       
+       Existing Settings section continues to work.
+    ===================================================== */
+
+    const settingsCard =
+        document.querySelector(
+            ".settings-card"
+        );
+
+
+    if (settingsCard) {
+
+        const settingsInputs =
+            settingsCard.querySelectorAll(
+                "input"
+            );
+
+
+        const settingsSaveButton =
+            settingsCard.querySelector(
+                ".primary-button"
+            );
+
+
+        const profile =
+            getProfile();
+
+
+        if (settingsInputs[0]) {
+            settingsInputs[0].value =
+                profile.name;
+        }
+
+
+        if (settingsInputs[1]) {
+            settingsInputs[1].value =
+                profile.email;
+        }
+
+
+        if (settingsSaveButton) {
+
+            settingsSaveButton.addEventListener(
+                "click",
+                function () {
+
+                    const name =
+                        settingsInputs[0]
+                            ? settingsInputs[0]
+                                .value
+                                .trim()
+                            : profile.name;
+
+
+                    const email =
+                        settingsInputs[1]
+                            ? settingsInputs[1]
+                                .value
+                                .trim()
+                            : profile.email;
+
+
+                    if (!name || !email) {
+
+                        alert(
+                            "Please fill in all account information."
+                        );
+
+                        return;
+                    }
+
+
+                    saveProfileData({
+
+                        name:
+                            name,
+
+                        email:
+                            email,
+
+                        phone:
+                            getProfile().phone
+
+                    });
+
+
+                    loadProfile();
+
+
+                    alert(
+                        "Account information updated successfully."
+                    );
+
+                }
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       DASHBOARD COUNTERS
+    ===================================================== */
+
+    function updateDashboardCounters() {
+
+        const appointments =
+            getAppointments();
+
+
+        const upcoming =
+            appointments.filter(
+                function (appointment) {
+
+                    return (
+                        appointment.status ===
+                        "Waiting" ||
+
+                        appointment.status ===
+                        "Confirmed" ||
+
+                        appointment.status ===
+                        "In Progress"
+                    );
+
+                }
+            );
+
+
+        const completed =
+            appointments.filter(
+                function (appointment) {
+
+                    return (
+                        appointment.status ===
+                        "Completed"
+                    );
+
+                }
+            );
+
+
+        const upcomingCount =
+            document.getElementById(
+                "upcomingCount"
+            );
+
+
+        const completedDashboardCount =
+            document.getElementById(
+                "completedDashboardCount"
+            );
+
+
+        if (upcomingCount) {
+
+            upcomingCount.textContent =
+                upcoming.length;
+
+        }
+
+
+        if (completedDashboardCount) {
+
+            completedDashboardCount.textContent =
+                completed.length;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       DASHBOARD UPCOMING APPOINTMENT
+    ===================================================== */
+
+    function updateDashboardAppointment() {
+
+        const appointments =
+            getAppointments();
+
+
+        const upcoming =
+            appointments
+                .filter(
+                    function (appointment) {
+
+                        return (
+                            appointment.status ===
+                            "Waiting" ||
+
+                            appointment.status ===
+                            "Confirmed" ||
+
+                            appointment.status ===
+                            "In Progress"
+                        );
+
+                    }
+                )
+                .sort(
+                    function (a, b) {
+
+                        const dateA =
+                            new Date(
+                                a.date +
+                                "T" +
+                                convertTimeTo24Hour(
+                                    a.time
+                                )
+                            );
+
+
+                        const dateB =
+                            new Date(
+                                b.date +
+                                "T" +
+                                convertTimeTo24Hour(
+                                    b.time
+                                )
+                            );
+
+
+                        return (
+                            dateA - dateB
+                        );
+
+                    }
+                );
+
+
+        const doctorName =
+            document.getElementById(
+                "dashboardDoctorName"
+            );
+
+
+        const dashboardDate =
+            document.getElementById(
+                "dashboardDate"
+            );
+
+
+        const dashboardTime =
+            document.getElementById(
+                "dashboardTime"
+            );
+
+
+        const dashboardStatus =
+            document.querySelector(
+                "#dashboard .appointment .status"
+            );
+
+
+        if (upcoming.length === 0) {
+
+            if (doctorName) {
+                doctorName.textContent =
+                    "No upcoming consultation";
+            }
+
+
+            if (dashboardDate) {
+                dashboardDate.textContent =
+                    "—";
+            }
+
+
+            if (dashboardTime) {
+                dashboardTime.textContent =
+                    "—";
+            }
+
+
+            if (dashboardStatus) {
+                dashboardStatus.textContent =
+                    "None";
+            }
+
 
             return;
         }
 
 
-        if (profileName)
-            profileName.value =
-                savedProfile.name ||
-                "John Doe";
-
-        if (profileEmail)
-            profileEmail.value =
-                savedProfile.email ||
-                "";
-
-        if (profilePhone)
-            profilePhone.value =
-                savedProfile.phone ||
-                "";
-
-        if (profileDob)
-            profileDob.value =
-                savedProfile.dob ||
-                "";
-
-        if (profileGender)
-            profileGender.value =
-                savedProfile.gender ||
-                "";
-
-        if (profileAddress)
-            profileAddress.value =
-                savedProfile.address ||
-                "";
+        const appointment =
+            upcoming[0];
 
 
-        updateProfileHeader();
-    }
+        if (doctorName) {
 
+            doctorName.textContent =
+                appointment.doctorName;
 
-    /* =====================================================
-       UPDATE PROFILE HEADER
-    ===================================================== */
-
-    function updateProfileHeader() {
-
-        const name =
-            profileName &&
-            profileName.value.trim()
-                ? profileName.value.trim()
-                : "John Doe";
-
-
-        if (profileDisplayName) {
-
-            profileDisplayName.textContent =
-                name;
         }
 
 
-        if (profileAvatar) {
+        if (dashboardDate) {
 
-            profileAvatar.textContent =
-                getInitials(name);
+            dashboardDate.textContent =
+                formatDate(
+                    appointment.date
+                );
+
         }
+
+
+        if (dashboardTime) {
+
+            dashboardTime.textContent =
+                appointment.time;
+
+        }
+
+
+        if (dashboardStatus) {
+
+            dashboardStatus.textContent =
+                appointment.status;
+
+            dashboardStatus.className =
+                "status " +
+                getStatusClass(
+                    appointment.status
+                );
+
+        }
+
     }
 
 
     /* =====================================================
-       EDIT PROFILE
+       DOCTOR ACCEPT / REJECT SUPPORT
+       
+       These functions are provided so your future
+       DOCTOR DASHBOARD can update the same appointment.
+       
+       Example from doctor dashboard:
+       
+       acceptAppointment(id)
+       rejectAppointment(id)
     ===================================================== */
 
-    if (editProfileBtn) {
+    window.acceptAppointment =
+        function (appointmentId) {
 
-        editProfileBtn.addEventListener(
-            "click",
-            function () {
+            let appointments =
+                getAppointments();
 
-                profileFields.forEach(field => {
 
-                    if (field) {
-                        field.disabled = false;
+            appointments =
+                appointments.map(
+                    function (appointment) {
+
+                        if (
+                            Number(appointment.id) ===
+                            Number(appointmentId)
+                        ) {
+
+                            return {
+
+                                ...appointment,
+
+                                status:
+                                    "Confirmed",
+
+                                confirmedAt:
+                                    new Date()
+                                        .toISOString()
+
+                            };
+
+                        }
+
+
+                        return appointment;
+
                     }
-                });
-
-
-                editProfileBtn.style.display =
-                    "none";
-
-                if (saveProfileBtn)
-                    saveProfileBtn.style.display =
-                        "inline-block";
-
-                if (cancelProfileBtn)
-                    cancelProfileBtn.style.display =
-                        "inline-block";
-
-
-                if (profileName) {
-                    profileName.focus();
-                }
-            }
-        );
-    }
-
-
-    /* =====================================================
-       SAVE PROFILE
-    ===================================================== */
-
-    if (saveProfileBtn) {
-
-        saveProfileBtn.addEventListener(
-            "click",
-            function () {
-
-                if (
-                    !profileName ||
-                    !profileName.value.trim()
-                ) {
-
-                    alert(
-                        "Please enter your full name."
-                    );
-
-                    if (profileName) {
-                        profileName.focus();
-                    }
-
-                    return;
-                }
-
-
-                const profile = {
-
-                    name:
-                        profileName.value.trim(),
-
-                    email:
-                        profileEmail
-                            ? profileEmail.value.trim()
-                            : "",
-
-                    phone:
-                        profilePhone
-                            ? profilePhone.value.trim()
-                            : "",
-
-                    dob:
-                        profileDob
-                            ? profileDob.value
-                            : "",
-
-                    gender:
-                        profileGender
-                            ? profileGender.value
-                            : "",
-
-                    address:
-                        profileAddress
-                            ? profileAddress.value.trim()
-                            : ""
-                };
-
-
-                localStorage.setItem(
-                    "patientProfile",
-                    JSON.stringify(profile)
                 );
 
 
-                updateProfileHeader();
+            saveAppointments(
+                appointments
+            );
 
 
-                profileFields.forEach(field => {
+            renderConsultations();
 
-                    if (field) {
-                        field.disabled = true;
+            updateDashboardCounters();
+
+            updateDashboardAppointment();
+
+
+            alert(
+                "Appointment confirmed."
+            );
+
+        };
+
+
+    window.rejectAppointment =
+        function (appointmentId) {
+
+            let appointments =
+                getAppointments();
+
+
+            appointments =
+                appointments.map(
+                    function (appointment) {
+
+                        if (
+                            Number(appointment.id) ===
+                            Number(appointmentId)
+                        ) {
+
+                            return {
+
+                                ...appointment,
+
+                                status:
+                                    "Rejected",
+
+                                rejectedAt:
+                                    new Date()
+                                        .toISOString()
+
+                            };
+
+                        }
+
+
+                        return appointment;
+
                     }
-                });
-
-
-                editProfileBtn.style.display =
-                    "inline-block";
-
-                saveProfileBtn.style.display =
-                    "none";
-
-                if (cancelProfileBtn)
-                    cancelProfileBtn.style.display =
-                        "none";
-
-
-                alert(
-                    "Profile updated successfully."
                 );
+
+
+            saveAppointments(
+                appointments
+            );
+
+
+            renderConsultations();
+
+            updateDashboardCounters();
+
+            updateDashboardAppointment();
+
+
+            alert(
+                "Appointment rejected."
+            );
+
+        };
+
+
+    /* =====================================================
+       HELPERS
+    ===================================================== */
+
+    function getAppointments() {
+
+        return (
+            JSON.parse(
+                localStorage.getItem(
+                    "patientAppointments"
+                )
+            ) || []
+        );
+
+    }
+
+
+    function saveAppointments(
+        appointments
+    ) {
+
+        localStorage.setItem(
+            "patientAppointments",
+            JSON.stringify(
+                appointments
+            )
+        );
+
+    }
+
+
+    function getInitials(name) {
+
+        if (!name) {
+            return "JD";
+        }
+
+
+        return name
+
+            .replace(
+                "Dr. ",
+                ""
+            )
+
+            .trim()
+
+            .split(" ")
+
+            .filter(
+                function (word) {
+                    return word.length > 0;
+                }
+            )
+
+            .map(
+                function (word) {
+                    return word.charAt(0);
+                }
+            )
+
+            .join("")
+
+            .substring(0, 2)
+
+            .toUpperCase();
+
+    }
+
+
+    function formatDate(
+        dateString
+    ) {
+
+        if (!dateString) {
+            return "—";
+        }
+
+
+        const date =
+            new Date(
+                dateString +
+                "T00:00:00"
+            );
+
+
+        if (
+            Number.isNaN(
+                date.getTime()
+            )
+        ) {
+            return dateString;
+        }
+
+
+        return date.toLocaleDateString(
+            "en-IN",
+            {
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
             }
         );
+
+    }
+
+
+    function parseAmount(
+        value
+    ) {
+
+        return Number(
+
+            String(value)
+
+                .replace(
+                    "₹",
+                    ""
+                )
+
+                .replace(
+                    ",",
+                    ""
+                )
+
+                .trim()
+
+        ) || 0;
+
+    }
+
+
+    function convertTimeTo24Hour(
+        timeString
+    ) {
+
+        if (!timeString) {
+            return "00:00";
+        }
+
+
+        const parts =
+            timeString
+                .trim()
+                .split(" ");
+
+
+        const time =
+            parts[0];
+
+
+        const modifier =
+            (
+                parts[1] ||
+                "AM"
+            ).toUpperCase();
+
+
+        let [
+            hours,
+            minutes
+        ] =
+            time
+                .split(":")
+                .map(Number);
+
+
+        if (
+            modifier === "PM" &&
+            hours !== 12
+        ) {
+
+            hours += 12;
+
+        }
+
+
+        if (
+            modifier === "AM" &&
+            hours === 12
+        ) {
+
+            hours = 0;
+
+        }
+
+
+        return (
+
+            String(hours)
+                .padStart(2, "0")
+
+            +
+
+            ":" +
+
+            String(minutes)
+                .padStart(2, "0")
+
+        );
+
+    }
+
+
+    function getStatusClass(
+        status
+    ) {
+
+        switch (status) {
+
+            case "Waiting":
+                return "waiting";
+
+            case "Confirmed":
+                return "confirmed";
+
+            case "In Progress":
+                return "confirmed";
+
+            case "Completed":
+                return "completed";
+
+            case "Rejected":
+                return "rejected";
+
+            default:
+                return "confirmed";
+
+        }
+
+    }
+
+
+    function escapeHTML(
+        value
+    ) {
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+
+        div.textContent =
+            value == null
+                ? ""
+                : String(value);
+
+
+        return div.innerHTML;
+
     }
 
 
     /* =====================================================
-       CANCEL PROFILE EDIT
+       PREVENT PATIENT FROM ADDING PRESCRIPTIONS
     ===================================================== */
 
-    if (cancelProfileBtn) {
-
-        cancelProfileBtn.addEventListener(
-            "click",
-            function () {
-
-                loadPatientProfile();
-
-
-                profileFields.forEach(field => {
-
-                    if (field) {
-                        field.disabled = true;
-                    }
-                });
-
-
-                if (editProfileBtn)
-                    editProfileBtn.style.display =
-                        "inline-block";
-
-                if (saveProfileBtn)
-                    saveProfileBtn.style.display =
-                        "none";
-
-                cancelProfileBtn.style.display =
-                    "none";
-            }
-        );
-    }
+    disablePatientPrescriptionEditing();
 
 
     /* =====================================================
-       INITIAL RENDER
+       INITIAL LOAD
     ===================================================== */
 
-    renderDoctors();
+    loadProfile();
 
     renderConsultations();
 
@@ -2237,234 +3292,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     renderPayments();
 
-    loadPatientProfile();
+    updateDashboardCounters();
+
+    updateDashboardAppointment();
+
+    showPage("dashboard");
 
 
     /* =====================================================
-       AUTOMATIC CONSULT BUTTON UPDATE
+       AUTOMATIC STATUS REFRESH
        
-       This checks the appointment every 30 seconds.
-       When a Confirmed appointment reaches the
-       15-minute window, the button changes to Consult.
+       Checks every 30 seconds so:
+       
+       Confirmed → Consult
+       
+       automatically becomes available when the
+       15-minute window begins.
     ===================================================== */
 
-    setInterval(function () {
-
-        const consultationsPage =
-            document.getElementById(
-                "consultations"
-            );
-
-
-        if (
-            consultationsPage &&
-            consultationsPage.classList.contains(
-                "active-section"
-            )
-        ) {
+    setInterval(
+        function () {
 
             renderConsultations();
-        }
 
-    }, 30000);
+            updateDashboardCounters();
 
+            updateDashboardAppointment();
 
-    /* =====================================================
-       HELPER FUNCTIONS
-    ===================================================== */
+        },
+        30000
+    );
 
-    function getInitials(name) {
-
-        if (!name) return "JD";
-
-
-        const words =
-            name
-                .replace("Dr. ", "")
-                .trim()
-                .split(/\s+/);
-
-
-        if (words.length === 1) {
-
-            return words[0]
-                .substring(0, 2)
-                .toUpperCase();
-        }
-
-
-        return (
-            words[0][0] +
-            words[words.length - 1][0]
-        ).toUpperCase();
-    }
-
-
-    function formatDate(dateString) {
-
-        if (!dateString) {
-            return "—";
-        }
-
-
-        const date =
-            new Date(dateString);
-
-
-        if (isNaN(date.getTime())) {
-            return dateString;
-        }
-
-
-        return date.toLocaleDateString(
-            "en-IN",
-            {
-                day: "2-digit",
-                month: "short",
-                year: "numeric"
-            }
-        );
-    }
-
-
-    function formatDateOnly(dateString) {
-
-        if (!dateString) {
-            return "—";
-        }
-
-
-        const date =
-            new Date(dateString);
-
-
-        if (isNaN(date.getTime())) {
-            return dateString;
-        }
-
-
-        return date.toLocaleDateString(
-            "en-IN",
-            {
-                day: "2-digit",
-                month: "short",
-                year: "numeric"
-            }
-        );
-    }
-
-
-    function parseAmount(value) {
-
-        if (typeof value === "number") {
-            return value;
-        }
-
-
-        if (!value) {
-            return 0;
-        }
-
-
-        return Number(
-            String(value)
-                .replace(/[₹,]/g, "")
-                .trim()
-        ) || 0;
-    }
-
-
-    function convertTimeTo24Hour(timeString) {
-
-        if (!timeString) {
-            return "00:00";
-        }
-
-
-        let time =
-            timeString
-                .trim()
-                .toUpperCase();
-
-
-        /*
-         * Already in HH:MM format
-         */
-
-        if (
-            /^\d{1,2}:\d{2}$/.test(time)
-        ) {
-
-            const parts =
-                time.split(":");
-
-            return `${parts[0].padStart(2, "0")}:${parts[1]}`;
-        }
-
-
-        /*
-         * AM / PM format
-         */
-
-        const match =
-            time.match(
-                /^(\d{1,2}):(\d{2})\s*(AM|PM)$/
-            );
-
-
-        if (!match) {
-            return "00:00";
-        }
-
-
-        let hours =
-            parseInt(match[1], 10);
-
-        const minutes =
-            match[2];
-
-        const period =
-            match[3];
-
-
-        if (
-            period === "PM" &&
-            hours !== 12
-        ) {
-
-            hours += 12;
-        }
-
-
-        if (
-            period === "AM" &&
-            hours === 12
-        ) {
-
-            hours = 0;
-        }
-
-
-        return `${String(hours).padStart(2, "0")}:${minutes}`;
-    }
-
-
-    function escapeHTML(value) {
-
-        if (value === null ||
-            value === undefined) {
-
-            return "";
-        }
-
-
-        return String(value)
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
-    }
 
 });
-
