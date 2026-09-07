@@ -1,0 +1,612 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MediConnect</title>
+
+    <link rel="stylesheet" href="admin_dashboard.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">✚</div>
+            <div>
+                <h2>MediConnect</h2>
+                <span>Admin Panel</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+
+            <a href="#" class="menu-item active" onclick="showSection('dashboard', this)">
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+            <a href="#" class="menu-item" onclick="showSection('doctors', this)">
+                <span>👨‍⚕️</span>
+                Manage Doctors
+            </a>
+
+            <a href="#" class="menu-item" onclick="showSection('patients', this)">
+                <span>👤</span>
+                Manage Patients
+            </a>
+
+            <a href="#" class="menu-item" onclick="showSection('appointments', this)">
+                <span>📅</span>
+                Appointments
+            </a>
+
+            <a href="#" class="menu-item" onclick="showSection('payments', this)">
+                <span>💰</span>
+                Payments
+            </a>
+
+            <a href="#" class="menu-item" onclick="showSection('history', this)">
+                <span>📜</span>
+                History
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="menu-item logout" onclick="logoutAdmin()">
+                <span>🚪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+
+            <div>
+                <h1 id="pageTitle">Admin Dashboard</h1>
+                <p id="pageSubtitle">Welcome back, Admin!</p>
+            </div>
+
+            <div class="admin-profile">
+                <div class="profile-icon">A</div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <small>Admin</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section id="dashboard" class="content-section active-section">
+
+            <div class="welcome-box">
+                <div>
+                    <h2>Welcome to MediConnect 👋</h2>
+                    <p>Manage doctors, patients, appointments and payments from one place.</p>
+                </div>
+
+                <div class="welcome-icon">🏥</div>
+            </div>
+
+
+            <!-- Statistics Cards -->
+
+            <div class="stats-container">
+
+                <div class="stat-card">
+                    <div class="stat-icon doctor-icon">👨‍⚕️</div>
+
+                    <div>
+                        <h3>10</h3>
+                        <p>Total Doctors</p>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon patient-icon">👤</div>
+
+                    <div>
+                        <h3>25</h3>
+                        <p>Total Patients</p>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon appointment-icon">📅</div>
+
+                    <div>
+                        <h3>15</h3>
+                        <p>Appointments</p>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon payment-icon">₹</div>
+
+                    <div>
+                        <h3>₹8,500</h3>
+                        <p>Total Payments</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Recent Appointments -->
+
+            <div class="table-card">
+
+                <div class="table-header">
+                    <h2>Recent Appointments</h2>
+
+                    <button onclick="showSection('appointments', document.querySelectorAll('.menu-item')[3])">
+                        View All
+                    </button>
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>#1001</td>
+                                <td>Arun</td>
+                                <td>Dr. Kumar</td>
+                                <td>07 Sep 2026</td>
+                                <td>10:00 AM</td>
+                                <td><span class="status confirmed">Confirmed</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>#1002</td>
+                                <td>Priya</td>
+                                <td>Dr. Meena</td>
+                                <td>07 Sep 2026</td>
+                                <td>11:30 AM</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>#1003</td>
+                                <td>Rahul</td>
+                                <td>Dr. Raj</td>
+                                <td>08 Sep 2026</td>
+                                <td>02:00 PM</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DOCTORS ================= -->
+
+        <section id="doctors" class="content-section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Manage Doctors</h2>
+                    <p>View and manage registered doctors.</p>
+                </div>
+
+                <button class="primary-btn" onclick="addDoctor()">
+                    + Add Doctor
+                </button>
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Doctor Name</th>
+                                <th>Specialization</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>D001</td>
+                                <td>Dr. Kumar</td>
+                                <td>Cardiologist</td>
+                                <td>kumar@mediconnect.com</td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="action-btn view">View</button>
+                                    <button class="action-btn delete" onclick="deleteRecord(this)">Delete</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>D002</td>
+                                <td>Dr. Meena</td>
+                                <td>Dermatologist</td>
+                                <td>meena@mediconnect.com</td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="action-btn view">View</button>
+                                    <button class="action-btn delete" onclick="deleteRecord(this)">Delete</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>D003</td>
+                                <td>Dr. Raj</td>
+                                <td>Neurologist</td>
+                                <td>raj@mediconnect.com</td>
+                                <td><span class="status inactive">Inactive</span></td>
+                                <td>
+                                    <button class="action-btn view">View</button>
+                                    <button class="action-btn delete" onclick="deleteRecord(this)">Delete</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PATIENTS ================= -->
+
+        <section id="patients" class="content-section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Manage Patients</h2>
+                    <p>View registered patient information.</p>
+                </div>
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Patient Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>P001</td>
+                                <td>Arun</td>
+                                <td>arun@gmail.com</td>
+                                <td>9876543210</td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="action-btn view">View</button>
+                                    <button class="action-btn delete" onclick="deleteRecord(this)">Delete</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>P002</td>
+                                <td>Priya</td>
+                                <td>priya@gmail.com</td>
+                                <td>9876543211</td>
+                                <td><span class="status active">Active</span></td>
+                                <td>
+                                    <button class="action-btn view">View</button>
+                                    <button class="action-btn delete" onclick="deleteRecord(this)">Delete</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= APPOINTMENTS ================= -->
+
+        <section id="appointments" class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Appointments</h2>
+                    <p>Monitor all doctor appointments.</p>
+                </div>
+
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Appointment ID</th>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>A001</td>
+                                <td>Arun</td>
+                                <td>Dr. Kumar</td>
+                                <td>07 Sep 2026</td>
+                                <td>10:00 AM</td>
+                                <td><span class="status confirmed">Confirmed</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>A002</td>
+                                <td>Priya</td>
+                                <td>Dr. Meena</td>
+                                <td>07 Sep 2026</td>
+                                <td>11:30 AM</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>A003</td>
+                                <td>Rahul</td>
+                                <td>Dr. Raj</td>
+                                <td>08 Sep 2026</td>
+                                <td>02:00 PM</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PAYMENTS ================= -->
+
+        <section id="payments" class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Payments</h2>
+                    <p>View consultation fees and payment records.</p>
+                </div>
+
+            </div>
+
+
+            <div class="stats-container">
+
+                <div class="stat-card">
+                    <div class="stat-icon payment-icon">₹</div>
+
+                    <div>
+                        <h3>₹8,500</h3>
+                        <p>Total Revenue</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon appointment-icon">✓</div>
+
+                    <div>
+                        <h3>12</h3>
+                        <p>Successful Payments</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon patient-icon">⏳</div>
+
+                    <div>
+                        <h3>3</h3>
+                        <p>Pending Payments</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Payment ID</th>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>PAY001</td>
+                                <td>Arun</td>
+                                <td>Dr. Kumar</td>
+                                <td>₹800</td>
+                                <td>07 Sep 2026</td>
+                                <td><span class="status completed">Paid</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>PAY002</td>
+                                <td>Priya</td>
+                                <td>Dr. Meena</td>
+                                <td>₹700</td>
+                                <td>07 Sep 2026</td>
+                                <td><span class="status completed">Paid</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>PAY003</td>
+                                <td>Rahul</td>
+                                <td>Dr. Raj</td>
+                                <td>₹900</td>
+                                <td>08 Sep 2026</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HISTORY ================= -->
+
+        <section id="history" class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Consultation History</h2>
+                    <p>View completed consultation records.</p>
+                </div>
+
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>History ID</th>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Consultation Date</th>
+                                <th>Fee</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>H001</td>
+                                <td>Arun</td>
+                                <td>Dr. Kumar</td>
+                                <td>05 Sep 2026</td>
+                                <td>₹800</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>H002</td>
+                                <td>Priya</td>
+                                <td>Dr. Meena</td>
+                                <td>04 Sep 2026</td>
+                                <td>₹700</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="admin_dashboard.js"></script>
+
+</body>
+</html>
+```
