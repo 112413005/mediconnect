@@ -1,4 +1,4 @@
-```javascript
+
 // ================= SECTION NAVIGATION =================
 
 function showSection(sectionId, clickedItem) {
@@ -126,4 +126,4 @@ function logoutAdmin() {
     }
 
 }
-```
+
